@@ -3,17 +3,41 @@
 @import "base/base";
 @import "img";
 
+@import "plugin/bootstrap.min";
+@import "plugin/magnific-popup";
+@import "plugin/rev-slider";
+@import "plugin/sliders";
+
+
 body {
     font: $b-font-weight #{$b-font-size}/#{$b-line-height} $b-font-family;
     color: $c-text;
-    a {
-        text-decoration: none;
-        color: nth($c-link, 1);
-        &:hover {
-            text-decoration: underline;
-            color: nth($c-link, 2);
-        }
-    }
 }
 
 // Coding...
+@import "struct/preloader";
+@import "struct/aside";
+@import "struct/header";
+.relative {
+    position: relative;
+}
+.container-fluid.semi-fluid {
+    padding: 0 50px;
+}
+.main-wrapper {
+    position: relative;
+    left: 0;
+    -webkit-transition: all 600ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    -moz-transition: all 600ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    -ms-transition: all 600ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    -o-transition: all 600ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    transition: all 600ms cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+.main-wrapper.sidenav-opened {
+    left: -350px;
+}
+
+
+@import "plugin/responsive";
+@import "plugin/spacings";
+@import "plugin/animate.min";
