@@ -18,16 +18,8 @@
     "dist": "",
     "output": "",
     "shell": "",
-    "alias": {
-        "$": "./src/assets/jquery.min.js",
-        "jquery": "./src/assets/jquery.min.js",
-        "jQuery": "./src/assets/jquery.min.js"
-    },
-    "global": {
-        "$": "jquery",
-        "jquery": "jquery",
-        "jQuery": "jquery"
-    },
+    "alias": {},
+    "global": {},
     "externals": {},
     "proxy": {},
     "ts": {},
