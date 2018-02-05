@@ -2,7 +2,11 @@
 
 @import "base/base";
 @import "img";
-
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 @import "plugin/bootstrap.min";
 @import "plugin/magnific-popup";
 @import "plugin/rev-slider";
@@ -35,6 +39,9 @@ body {
 }
 .main-wrapper.sidenav-opened {
     left: -350px;
+}
+.oh {
+    overflow: hidden;
 }
 
 
