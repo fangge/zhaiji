@@ -265,6 +265,7 @@ header.transparent .nav-right {
   width: 20px;
   height: 20px;
   padding: 0;
+
 }
 #nav-icon .nav-icon-inner {
   display: table-cell;
@@ -283,6 +284,11 @@ header.transparent .nav-right {
   -ms-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  &:hover{
+    span{
+      background-color: #e7604a;
+    }
+  }
 }
 #nav-icon span {
   display: block;

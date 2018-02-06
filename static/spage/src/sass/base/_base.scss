@@ -18,9 +18,10 @@ $b-line-height     : 1.5 !default;
 $b-link-decoration : underline !default;
 
 // 颜色配置
-$c-text       : #333 !default;
+$c-text       : #c4c4c4 !default;
 $c-background : #fff !default;
 $c-link       : #333 #fa0 !default;
+
 
 // 基础模块
 @import "mixins";
