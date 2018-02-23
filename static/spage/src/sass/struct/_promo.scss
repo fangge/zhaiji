@@ -1,0 +1,47 @@
+/*-------------------------------------------------------*/
+/* Promo Section
+/*-------------------------------------------------------*/
+.promo-section .row > div:last-child {
+  padding-right: 15%;
+  display: table-cell;
+  vertical-align: middle;
+  float: none;
+}
+.promo-section .row > div:first-child {
+  float: none;
+  display: table-cell;
+}
+.promo-section .container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  max-width: 100%;
+}
+.promo-section h2 {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+.promo-section p {
+  font-size: 16px;
+  line-height: 32px;
+}
+.promo-section .lead-text {
+  font-size: 18px;
+  line-height: 34px;
+  margin-bottom: 37px;
+}
+
+.customNavigation .btn.prev,
+.customNavigation .btn.next {
+  width: auto;
+  height: auto;
+  font-size: 28px;
+  padding: 0;
+  border: none;
+  margin-right: 14px;
+  background-color: transparent;
+  color: #979ba3;
+}
+.customNavigation .btn.prev:hover,
+.customNavigation .btn.next:hover {
+  color: #e7604a;
+}

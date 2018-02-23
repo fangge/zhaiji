@@ -7,6 +7,7 @@ ul {
     margin: 0;
     padding: 0;
 }
+
 @import "plugin/bootstrap.min";
 @import "plugin/magnific-popup";
 @import "plugin/rev-slider";
@@ -23,6 +24,333 @@ body {
 @import "struct/preloader";
 @import "struct/aside";
 @import "struct/header";
+@import "struct/textcol";
+@import "struct/btn";
+@import "struct/promo";
+/*-------------------------------------------------------*/
+/* Typography
+/*-------------------------------------------------------*/
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto", sans-serif;
+    margin-top: 0;
+    color: #5a5b5f;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+h5 {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+h6 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+    color: inherit;
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+    color: #5a5b5f;
+    font-size: 70%;
+}
+
+p {
+    font-size: 15px;
+    color: #979ba3;
+    font-weight: normal;
+    line-height: 26px;
+}
+
+.heading {
+    position: relative;
+    margin-bottom: 30px;
+}
+.heading.large {
+    font-size: 42px;
+}
+
+.heading-row {
+    margin-bottom: 30px;
+}
+.heading-row.style-2 {
+    margin-bottom: 60px;
+}
+
+.subheading {
+    font-family: "Merriweather", serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 34px;
+}
+
+.list-inline {
+    margin: 0;
+}
+
+.bottom-line:after {
+    content: "";
+    display: block;
+    width: 56px;
+    border-bottom: 2px solid #e7604a;
+    margin: 12px auto 24px;
+    z-index: 1;
+    position: relative;
+}
+
+.bottom-line:before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    border-bottom: 1px solid #e8ebee;
+}
+
+.bottom-line.style-2:before {
+    display: none;
+}
+
+.bottom-line.left-align:after {
+    margin: 12px auto 24px 0;
+}
+
+.footer-widgets .bottom-line:before {
+    border-color: #40434a;
+}
+
+.sliding-link {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+}
+.sliding-link:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    -webkit-transition: width 0s ease, background 0.5s ease;
+    -moz-transition: width 0s ease, background 0.5s ease;
+    -ms-transition: width 0s ease, background 0.5s ease;
+    -o-transition: width 0s ease, background 0.5s ease;
+    transition: width 0s ease, background 0.5s ease;
+}
+.sliding-link:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: #e7604a;
+    -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+    -ms-transition: width 0.5s ease;
+    -o-transition: width 0.5s ease;
+    transition: width 0.5s ease;
+}
+.sliding-link:hover:before {
+    width: 100%;
+    background: #e7604a;
+    -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+    -ms-transition: width 0.5s ease;
+    -o-transition: width 0.5s ease;
+    transition: width 0.5s ease;
+}
+.sliding-link:hover:after {
+    width: 100%;
+    background: transparent;
+    -webkit-transition: all 0s ease;
+    -moz-transition: all 0s ease;
+    -ms-transition: all 0s ease;
+    -o-transition: all 0s ease;
+    transition: all 0s ease;
+}
+
+.mobile .sliding-link:before,
+.mobile .sliding-link:after,
+.mobile .underline-link:after {
+    display: none;
+}
+
+.underline-link {
+    display: inline-block;
+}
+
+.underline-link:after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #fff;
+    width: 100%;
+    opacity: 0;
+    bottom: -10px;
+    position: relative;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.underline-link:hover:after {
+    opacity: 1;
+    bottom: -3px;
+}
+
+p.large {
+    font-size: 120%;
+    line-height: 1.8;
+}
+
+blockquote {
+    padding: 0 0 20px;
+    margin: 0;
+    border: none;
+}
+blockquote > p {
+    font-size: 20px;
+    line-height: 34px;
+    font-family: "Merriweather", serif;
+    margin-bottom: 5px !important;
+    position: relative;
+    font-style: italic;
+}
+blockquote > span {
+    color: #e7604a;
+    font-size: 16px;
+}
+
+.blockquote-style-1 {
+    padding: 40px 40px 40px 90px;
+    border: 1px solid #e8ebee;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+.blockquote-style-1 span {
+    color: #e7604a;
+}
+.blockquote-style-1 p:before {
+    content: "\f10d";
+    font-size: 30px;
+    position: absolute;
+    left: -50px;
+    margin-top: 3px;
+    font-family: "FontAwesome";
+    font-style: normal;
+    color: #979ba3;
+    opacity: 0.3;
+}
+
+.blockquote-style-2 {
+    padding: 40px;
+    border-left: 2px solid #e7604a;
+}
+
+.dropcap {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.dropcap.style-1 {
+    float: left;
+    color: #e7604a;
+    font-size: 47px;
+    line-height: 48px;
+    padding-right: 10px;
+}
+
+.dropcap.style-2 {
+    float: left;
+    color: #fff;
+    text-align: center;
+    background-color: #e7604a;
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
+    line-height: 40px;
+    margin: 7px 10px 0 0;
+}
+
+.highlight {
+    padding: 3px 5px;
+    color: #fff;
+    background-color: #e7604a;
+}
+
+.list li {
+    line-height: 24px;
+}
+.list li i {
+    line-height: 21px;
+}
+
+.bullets li,
+.arrows li,
+.checks li,
+.numbers li {
+    margin-bottom: 20px;
+    color: #979ba3;
+}
+
+.bullets li:before {
+    content: "\2022";
+    font-size: 14px;
+    color: #e7604a;
+    padding-right: 0.5em;
+}
+
+.arrows i {
+    margin-right: 5px;
+}
+
+.arrows i,
+.checks i {
+    color: #e7604a;
+}
+
+.checks i {
+    font-size: 12px;
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
+ol.numbers {
+    padding-left: 20px;
+}
+
+.section-columns p {
+    margin-bottom: 40px;
+}
+
 .relative {
     position: relative;
 }
@@ -44,7 +372,6 @@ body {
 .oh {
     overflow: hidden;
 }
-
 
 @import "plugin/responsive";
 @import "plugin/spacings";
