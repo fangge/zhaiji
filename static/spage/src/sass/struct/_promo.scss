@@ -1,6 +1,28 @@
 /*-------------------------------------------------------*/
 /* Promo Section
 /*-------------------------------------------------------*/
+.promo-section h2.title{
+  color: #626262;
+  font-size: 36px;
+  text-align: center;
+  line-height: 1;
+  padding-bottom:25px;
+  border-bottom:1px solid #e7e7e7;
+  margin-bottom:100px;
+  position: relative;
+  z-index: 80;
+  &:after{
+    display: block;
+    content:"";
+    width: 56px;
+    height: 2px;
+    background: #e7604a;
+    position: absolute;
+    bottom:-2px;
+    left:50%;
+    margin-left:-28px;
+  }
+}
 .promo-section .row > div:last-child {
   padding-right: 15%;
   display: table-cell;
@@ -29,19 +51,38 @@
   line-height: 34px;
   margin-bottom: 37px;
 }
-
+.customNavigation{
+  position: absolute;
+  top:-98px;
+  left: -50%;
+  margin-left: -178px;
+}
 .customNavigation .btn.prev,
 .customNavigation .btn.next {
-  width: auto;
-  height: auto;
-  font-size: 28px;
-  padding: 0;
-  border: none;
-  margin-right: 14px;
   background-color: transparent;
-  color: #979ba3;
+  padding: 0;
+  display: inline-block;
+  margin: 0 200px;
 }
-.customNavigation .btn.prev:hover,
-.customNavigation .btn.next:hover {
-  color: #e7604a;
+.customNavigation .btn.prev{
+  @extend %prev;
+  &:hover{
+    @extend %prevhov;
+  }
+}
+.customNavigation .btn.next{
+  @extend %next;
+  &:hover{
+    @extend %nexthov;
+  }
+}
+.promo-section{
+  .owl-carousel{
+    position: relative;
+    z-index: 99;
+  }
+  .owl-carousel .owl-wrapper-outer{
+    padding-top: 100px;
+    margin-top: -121px;
+  }
 }

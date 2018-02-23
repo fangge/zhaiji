@@ -29,7 +29,7 @@
 }
 
 .bg-light {
-  background-color: #fafcfc;
+  background-color: #f3f3f3;
 }
 
 .bg-color {
@@ -82,17 +82,18 @@
 /* Service Icons
 /*-------------------------------------------------------*/
 .service-item-box h3 {
-  font-size: 24px;
+  font-size: 36px;
   margin-top: 15px;
-  margin-bottom: 16px;
-  font-weight: normal;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #586267;
+  line-height: 1;
 }
 .service-item-box i {
   margin: 0 auto;
-  font-size: 40px;
 }
 .service-item-box.style-1 {
-  background-color: #fff;
+  background-color: #f9f9f9;
   position: relative;
   top: 0;
   -webkit-border-radius: 5px;
@@ -101,7 +102,7 @@
   -moz-box-shadow: 0px 1px 2px 0px rgba(90, 91, 95, 0.15);
   -ms-box-shadow: 0px 1px 2px 0px rgba(90, 91, 95, 0.15);
   box-shadow: 0px 1px 2px 0px rgba(90, 91, 95, 0.15);
-  padding: 60px 50px;
+  padding: 50px;
   border-top: 3px solid #e7604a;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -115,6 +116,7 @@
   -ms-box-shadow: 0px 16px 22px 0px rgba(90, 91, 95, 0.3);
   box-shadow: 0px 16px 22px 0px rgba(90, 91, 95, 0.3);
   top: -5px;
+  background: #fff;
 }
 .service-item-box.style-1 i {
   color: #e7604a;
@@ -122,26 +124,19 @@
 .service-item-box.style-1.red {
   border-color: #e7604a;
 }
-.service-item-box.style-1.red i {
-  color: #e7604a;
-}
+
 .service-item-box.style-1.red .read-more {
   color: #e7604a;
 }
 .service-item-box.style-1.turquoise {
   border-color: #1abc9c;
 }
-.service-item-box.style-1.turquoise i {
-  color: #1abc9c;
-}
+
 .service-item-box.style-1.turquoise .read-more {
   color: #1abc9c;
 }
 .service-item-box.style-1.violet {
   border-color: #7b33d4;
-}
-.service-item-box.style-1.violet i {
-  color: #7b33d4;
 }
 .service-item-box.style-1.violet .read-more {
   color: #7b33d4;
@@ -195,4 +190,32 @@
 }
 .service-item-box .read-more:hover {
   color: #191b1f !important;
+  text-decoration: none;
+}
+.service-item-box{
+  height: 365px;
+}
+.service-item-box i{
+  display: block;
+}
+.service-item-box blockquote{
+  color: #7b8386;
+  font-size: 14px;
+  margin: 0 0 20px;
+  padding:0;
+  line-height: 1;
+}
+.service-item-box p{
+  color: #7b8488;
+  font-size: 12px;
+  line-height: 16px;
+}
+.icon-game{
+  @extend %icon-game;
+}
+.icon-design{
+  @extend %icon-design;
+}
+.icon-3ds{
+  @extend %icon-3ds;
 }
