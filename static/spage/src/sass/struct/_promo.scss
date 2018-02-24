@@ -1,3 +1,51 @@
+/*
+ * @name:  三角形
+ * @param: $size  大小
+ * @param: $color 颜色
+ * @param: $type {string}  类型 (up || down || left || right || topleft || topright || bottomleft || bottomright)
+ */
+@mixin triangle(
+  $size: 50px,
+  $type: up,
+  $color: #6699FF
+){
+  width: 0;
+  height: 0;
+  @if $type == up {
+    border-left: $size/2 solid transparent;
+    border-right: $size/2 solid transparent;
+    border-bottom: $size solid $color;
+  }@else if $type == down {
+    border-left: $size/2 solid transparent;
+    border-right: $size/2 solid transparent;
+    border-top: $size solid $color;
+  }@else if $type == left {
+    border-top: $size/2 solid transparent;
+    border-right: $size/2 solid $color;
+    border-bottom: $size solid transparent;
+  }@else if $type == right {
+    border-top: $size/2 solid transparent;
+    border-left: $size/2 solid $color;
+    border-bottom: $size solid transparent;
+  }@else if $type == topleft {
+    border-top: $size solid $color;
+    border-right: $size solid transparent;
+  }@else if $type == topright {
+    border-top: $size solid $color;
+    border-left: $size solid transparent;
+  }@else if $type == bottomleft {
+    border-bottom: $size solid $color;
+    border-right: $size solid transparent;
+  }@else if $type == bottomright {
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+  }
+}
+@mixin nowrap{
+  white-space: nowrap;
+  word-wrap: normal;
+  word-break: keep-all;
+}
 /*-------------------------------------------------------*/
 /* Promo Section
 /*-------------------------------------------------------*/
@@ -24,7 +72,7 @@
   }
 }
 .promo-section .row > div:last-child {
-  padding-right: 15%;
+  padding-right: 12%;
   display: table-cell;
   vertical-align: middle;
   float: none;
@@ -39,17 +87,17 @@
   max-width: 100%;
 }
 .promo-section h2 {
-  font-size: 40px;
+  font-size: 36px;
+  color: #4f4f4f;
   margin-bottom: 16px;
+  font-family: "Microsoft YaHei",sans-serif;
+  text-align: left;
 }
 .promo-section p {
-  font-size: 16px;
-  line-height: 32px;
-}
-.promo-section .lead-text {
-  font-size: 18px;
-  line-height: 34px;
-  margin-bottom: 37px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #7b8488;
+  text-align: left;
 }
 .customNavigation{
   position: absolute;
@@ -84,5 +132,67 @@
   .owl-carousel .owl-wrapper-outer{
     padding-top: 100px;
     margin-top: -121px;
+  }
+  article{
+    h2{
+      @include ellipsis();
+      max-width:470px;
+    }
+    position: relative;
+    text-align:right;
+    .art-author{
+      width:76px;
+      img{
+        display: block;
+        width:76px;
+        height: 76px;
+        border-radius:100%;
+      }
+      p{
+        color:#2c2c2c;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+    .art-info{
+      position: absolute;
+      right:0;
+      top:37px;
+    }
+    .art-like{
+      font-size:14px;
+      color: #c6c6c6;
+      text-align: right;
+      i{
+        font-size:14px;
+        margin-right:5px;
+        color: #f68585;
+      }
+    }
+    .art-time{
+      color: #dedddd;
+      font-size: 36px;
+      font-style: normal;
+      font-family: "Helvetica Neue";
+    }
+    .art-box{
+      width: 100%;
+      min-height: 431px;
+      background-color: #fff;
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
+      padding: 30px 45px;
+      margin-top:20px;
+      position: relative;
+    }
+    .art-btn{
+      background-color: #ffffff;
+      box-shadow: 0px 2px 5px 0px
+      rgba(0, 0, 0, 0.04);
+      border-radius: 3px;
+      color: #4e4e4e;
+      font-size: 12px;
+      margin-top:37px;
+    }
   }
 }
