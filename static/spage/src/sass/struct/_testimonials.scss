@@ -1,0 +1,57 @@
+/*-------------------------------------------------------*/
+/* Testimonials
+/*-------------------------------------------------------*/
+.parallax-testimonials .parallax {
+  background-image: url(../img/testimonials.jpg);
+}
+
+.parallax {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 0;
+  z-index: -1;
+}
+
+.mobile .parallax {
+  background-attachment: scroll !important;
+  background-position: 50% 50% !important;
+}
+
+.parallax-testimonials > div {
+  padding: 135px 0 115px;
+}
+.parallax-testimonials h2 {
+  font-size: 24px;
+  margin-bottom: 41px;
+}
+.parallax-testimonials .owl-dots {
+  bottom: 29px;
+  position: absolute;
+}
+.parallax-testimonials #owl-testimonials {
+  position: static;
+}
+.parallax-testimonials .testimonial-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 31px;
+  color: #fff;
+  line-height: 46px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+.parallax-testimonials .testimonial span {
+  font-size: 16px;
+  color: #fff;
+}
+.parallax-testimonials .owl-pagination {
+  position: relative;
+  bottom: 0;
+  margin-top: 40px;
+}
