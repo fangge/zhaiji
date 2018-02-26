@@ -14,10 +14,23 @@ ul {
 @import "plugin/sliders";
 @import "plugin/font-icons";
 
-
+a：hover{
+    text-decoration: none;
+}
 body {
-    font: $b-font-weight #{$b-font-size}/#{$b-line-height} $b-font-family;
-    color: $c-text;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    background: #fff;
+    outline: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #979ba3;
 }
 
 // Coding...
@@ -29,6 +42,7 @@ body {
 @import "struct/promo";
 @import "struct/testimonials";
 @import "struct/portfolio";
+@import "struct/footer";
 /*-------------------------------------------------------*/
 /* Typography
 /*-------------------------------------------------------*/
