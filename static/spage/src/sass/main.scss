@@ -28,6 +28,7 @@ body {
 @import "struct/btn";
 @import "struct/promo";
 @import "struct/testimonials";
+@import "struct/portfolio";
 /*-------------------------------------------------------*/
 /* Typography
 /*-------------------------------------------------------*/
@@ -373,7 +374,58 @@ ol.numbers {
 .oh {
     overflow: hidden;
 }
-
+/* Go to Top
+-------------------------------------------------------*/
+#back-to-top {
+    display: block;
+    z-index: 500;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    font-size: 22px;
+    position: fixed;
+    bottom: -36px;
+    right: 20px;
+    line-height: 30px;
+    background-color: #fff;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    -webkit-box-shadow: 1px 1.732px 12px 0px rgba(0, 0, 0, 0.14), 1px 1.732px 3px 0px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 1px 1.732px 12px 0px rgba(0, 0, 0, 0.14), 1px 1.732px 3px 0px rgba(0, 0, 0, 0.12);
+    -ms-box-shadow: 1px 1.732px 12px 0px rgba(0, 0, 0, 0.14), 1px 1.732px 3px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 1px 1.732px 12px 0px rgba(0, 0, 0, 0.14), 1px 1.732px 3px 0px rgba(0, 0, 0, 0.12);
+}
+#back-to-top i {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+#back-to-top a {
+    width: 36px;
+    height: 36px;
+    display: block;
+    color: #5a5b5f;
+}
+#back-to-top.show {
+    bottom: 20px;
+}
+#back-to-top:hover {
+    background-color: #e7604a;
+}
+#back-to-top:hover i {
+    color: #fff;
+}
+.footer-banner{
+    @extend %footer_banner
+}
 @import "plugin/responsive";
 @import "plugin/spacings";
 @import "plugin/animate.min";
