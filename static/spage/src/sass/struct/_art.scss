@@ -1,0 +1,49 @@
+.art-banner{
+  width: 100%;
+  height: 490px;
+  background: url(../img/art-banner.jpg) no-repeat center 0;
+  background-attachment: fixed;
+  text-align: center;
+  padding-top:248px;
+  box-sizing: border-box;
+  h2{
+    color: #cfcfcf;
+    font-size: 90px;
+    font-weight: 600;
+    font-family: Arial,sans-serif;
+  }
+  p{
+    font-size: 12px;
+    line-height: 18px;
+    color: #cfcfcf;
+  }
+}
+.art-col{
+  .col-md-8{
+    padding-right:0;
+    h2{
+      text-align: center;
+      color:#626262;
+      font-size: 36px;
+    }
+  }
+  .col-md-4{
+    padding-left:0;
+    border-left:1px solid #e8ebee;
+  }
+}
+.top-info{
+  color: #8e8e8e;
+  font-size: 14px;
+  line-height: 1;
+  border-bottom:1px solid #e8ebee;
+  padding-top:22px;
+  a{
+    color: #8e8e8e;
+    font-size: 14px;
+    padding:0 5px;
+    &:hover,&.cur{
+      color:#e7604a;
+    }
+  }
+}
