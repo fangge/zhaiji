@@ -55,3 +55,230 @@
   bottom: 0;
   margin-top: 40px;
 }
+
+/*-------------------------------------------------------*/
+/* Sliders
+/*-------------------------------------------------------*/
+.owl-carousel,
+.flickity {
+  overflow: hidden;
+}
+
+.owl-carousel img {
+  width: 100%;
+}
+
+.owl-pagination {
+  bottom: 30px;
+  position: absolute;
+  left: 0;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.owl-page {
+  display: inline-block;
+  padding: 5px;
+  position: relative;
+}
+.owl-page.active span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 0;
+  opacity: 1;
+  background: #e7604a;
+}
+.owl-page span {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 2px;
+  opacity: 0.5;
+  background: #fff;
+  z-index: 100;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.owl-page span:hover {
+  opacity: 1;
+}
+
+.owl-buttons {
+  position: static;
+}
+
+.owl-prev,
+.flex-direction-nav .flex-prev,
+.flickity-prev-next-button.previous {
+  left: -40px;
+}
+
+.owl-next,
+.flex-direction-nav .flex-next,
+.flickity-prev-next-button.next {
+  right: -40px;
+}
+
+.owl-prev,
+.owl-next,
+.flex-direction-nav a,
+.flickity-prev-next-button {
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  text-align: center;
+  line-height: 40px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.owl-next:before,
+#flexslider .flex-direction-nav .flex-next:before,
+.flickity-prev-next-button:before {
+  left: auto;
+  right: 0;
+}
+
+.owl-prev i,
+.owl-next i,
+#flexslider a i,
+#thumbs a i {
+  position: relative;
+  font-size: 40px;
+  color: #5a5b5f;
+}
+
+.light-arrows .owl-prev i,
+.light-arrows .owl-next i,
+#flexslider.light-arrows a i {
+  color: #fff;
+}
+
+.light-arrows .flickity-prev-next-button .arrow {
+  fill: #fff;
+}
+
+.owl-carousel:hover .owl-next,
+.flexslider:hover .flex-direction-nav .flex-next,
+.flickity:hover .flickity-prev-next-button.next {
+  opacity: 1;
+  right: 10px;
+}
+
+.owl-carousel:hover .owl-prev,
+.flexslider:hover .flex-direction-nav .flex-prev,
+.flickity:hover .flickity-prev-next-button.previous {
+  opacity: 1;
+  left: 10px;
+}
+
+.flickity-prev-next-button,
+.flickity-prev-next-button:hover {
+  background-color: transparent;
+}
+
+.flickity-prev-next-button:focus {
+  box-shadow: none;
+}
+
+.flickity-prev-next-button {
+  -webkit-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+.flickity-prev-next-button .arrow {
+  fill: #5a5b5f;
+}
+
+.flickity-page-dots {
+  position: relative;
+  bottom: auto;
+  margin-top: 50px;
+}
+
+.flickity-page-dots .dot,
+.flex-control-paging li a {
+  height: 2px;
+  width: 24px;
+  opacity: 0.5;
+  margin: 0 5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background: #979ba3;
+}
+
+.flex-control-nav {
+  bottom: 10px;
+}
+.flex-control-nav li {
+  margin: 0;
+}
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 1;
+  background: #e7604a;
+}
+#owl-testimonials{
+  h2{
+    color:#fff;
+    font-size: 108px;
+    font-weight:600;
+    font-family: Arial,sans-serif;
+    margin-bottom:30px;
+    line-height: 108px;
+    text-align: left;
+  }
+  p{
+    color: #8b8b8b;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: left;
+    margin-bottom:0
+  }
+  .col-md-8{
+    float: none;
+    margin: 0 auto;
+  }
+
+  .prev-btn,.next-btn{
+    display: inline-block;
+  }
+  .prev-btn{
+    @extend %prev;
+    &:hover{
+      @extend %prevhov;
+    }
+  }
+  .next-btn{
+    @extend %next;
+    &:hover{
+      @extend %nexthov;
+    }
+  }
+}
+/*-------------------------------------------------------*/
+/* Partners
+/*-------------------------------------------------------*/
+.partners {
+  padding: 30px 0;
+}

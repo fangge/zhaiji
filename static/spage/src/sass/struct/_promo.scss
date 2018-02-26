@@ -102,8 +102,8 @@
 .customNavigation{
   position: absolute;
   top:-98px;
-  left: -50%;
-  margin-left: -178px;
+  left: 50%;
+  margin-left: -4796px;
 }
 .customNavigation .btn.prev,
 .customNavigation .btn.next {
@@ -128,6 +128,7 @@
   .owl-carousel{
     position: relative;
     z-index: 99;
+    overflow: visible;
   }
   .owl-carousel .owl-wrapper-outer{
     padding-top: 100px;
@@ -193,6 +194,10 @@
       color: #4e4e4e;
       font-size: 12px;
       margin-top:37px;
+      &:hover{
+        background: #e9705c;
+        color:#fff;
+      }
     }
   }
 }

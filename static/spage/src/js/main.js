@@ -296,10 +296,10 @@
             $("#owl-testimonials").owlCarousel({
 
                 navigation: true,
-                navigationText: ["<i class='ti-angle-left'></i>", "<i class='ti-angle-right'></i>"],
+                navigationText: ["<i class='prev-btn'></i>", "<i class='next-btn'></i>"],
                 autoHeight: true,
                 slideSpeed: 300,
-                pagination: true,
+                pagination: false,
                 paginationSpeed: 400,
                 singleItem: true,
                 stopOnHover: true
