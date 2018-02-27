@@ -105,7 +105,7 @@
   top: 127px;
   left: 50%;
   margin-left: -420px;
-  z-index: 9999;
+  z-index: 1000;
 }
 .customNavigation .btn.prev,
 .customNavigation .btn.next {
@@ -198,6 +198,7 @@
     font-size:14px;
     margin-right:5px;
     color: #f68585;
+    cursor:pointer;
   }
 }
 .art-time{

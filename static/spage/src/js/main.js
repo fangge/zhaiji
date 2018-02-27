@@ -40,7 +40,16 @@
 
     });
 
+    $('.navbar-nav').find('a').on('click',function () {
+        var top = $('.'+$(this).data('scroll')).offset().top;
+        $('html,body').animate({'scrollTop':top},400)
+    })
 
+    $('.art-like i').on('click',function () {
+        var t = $(this).parent().find('span');
+        var num = parseInt(t.text())+1;
+        t.html(num);
+    })
     /* Sticky Navigation
     -------------------------------------------------------*/
     $(window).scroll(function(){

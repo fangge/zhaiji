@@ -6,18 +6,8 @@
   font-weight: bold;
   text-align: center;
 }
-.portfolio-filter a {
-  display: inline-block;
-  font-family: "Roboto", sans-serif;
-  margin: 0 15px;
-  color: #979ba3;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.portfolio-filter a.active, .portfolio-filter a:hover {
-  color: #e7604a;
-}
+
+
 /*-------------------------------------------------------*/
 /* Portfolio
 /*-------------------------------------------------------*/
@@ -110,12 +100,10 @@
 }
 .portfolio-filter a {
   display: inline-block;
-  font-family: "Roboto", sans-serif;
   margin: 0 15px;
   color: #979ba3;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-weight:normal;
 }
 .portfolio-filter a.active, .portfolio-filter a:hover {
   color: #e7604a;

@@ -1608,7 +1608,7 @@ website:    http://www.themepunch.com
   padding:0px 10px;
   line-height:30px; background:#000;
   background:rgba(0,0,0,0.75);color:#fff;
-  font-weight:600; position:absolute;
+    position:absolute;
   font-size:12px;
   white-space:nowrap;
   letter-spacing:1px;

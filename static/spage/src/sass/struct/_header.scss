@@ -1,3 +1,7 @@
+header{
+  position: relative;
+  z-index: 9999;
+}
 /* Navigation Toggle
 -------------------------------------------------------*/
 .navbar-toggle {
@@ -31,6 +35,7 @@
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   z-index: 120;
+  padding:27px 0
 }
 
 .navigation {
@@ -68,7 +73,7 @@
   -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   -ms-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  z-index: 120;
+  z-index: 9999;
 }
 .navigation.sticky.scrolling {
   opacity: 1;
@@ -155,12 +160,12 @@
 .navbar-nav > li > a {
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
   letter-spacing: 0.05em;
   color: #5a5b5f;
   font-size: 13px;
   padding: 0 16px;
   line-height: 100px;
+  cursor:pointer;
 }
 .navbar-nav > li:last-child > a {
   padding-right: 0;
@@ -276,7 +281,7 @@ header.transparent .nav-right {
   cursor: pointer;
 }
 #nav-icon .nav-icon-wrap {
-  height: 20px;
+  height: 27px;
   position: relative;
   top: 3px;
   -webkit-transform: translate3d(0, 0, 0);
