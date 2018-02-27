@@ -141,41 +141,13 @@
     }
     position: relative;
     text-align:right;
-    .art-author{
-      width:76px;
-      img{
-        display: block;
-        width:76px;
-        height: 76px;
-        border-radius:100%;
-      }
-      p{
-        color:#2c2c2c;
-        font-size: 12px;
-        text-align: center;
-      }
-    }
+
     .art-info{
       position: absolute;
       right:0;
       top:37px;
     }
-    .art-like{
-      font-size:14px;
-      color: #c6c6c6;
-      text-align: right;
-      i{
-        font-size:14px;
-        margin-right:5px;
-        color: #f68585;
-      }
-    }
-    .art-time{
-      color: #dedddd;
-      font-size: 36px;
-      font-style: normal;
-      font-family: "Helvetica Neue";
-    }
+
     .art-box{
       width: 100%;
       min-height: 431px;
@@ -200,4 +172,34 @@
       }
     }
   }
+}
+.art-author{
+  width:76px;
+  img{
+    display: block;
+    width:76px;
+    height: 76px;
+    border-radius:100%;
+  }
+  p{
+    color:#2c2c2c;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+.art-like{
+  font-size:14px;
+  color: #c6c6c6;
+  text-align: right;
+  i{
+    font-size:14px;
+    margin-right:5px;
+    color: #f68585;
+  }
+}
+.art-time{
+  color: #dedddd;
+  font-size: 36px;
+  font-style: normal;
+  font-family: "Helvetica Neue";
 }
