@@ -85,6 +85,7 @@
   padding-right: 0;
   padding-left: 0;
   max-width: 100%;
+  position: relative;
 }
 .promo-section h2 {
   font-size: 36px;
@@ -99,11 +100,12 @@
   color: #7b8488;
   text-align: left;
 }
-.customNavigation{
+.customNavigation {
   position: absolute;
-  top:-98px;
+  top: 132px;
   left: 50%;
-  margin-left: -4796px;
+  margin-left: -407px;
+  z-index: 9999;
 }
 .customNavigation .btn.prev,
 .customNavigation .btn.next {
