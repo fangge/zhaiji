@@ -102,9 +102,9 @@
 }
 .customNavigation {
   position: absolute;
-  top: 132px;
+  top: 127px;
   left: 50%;
-  margin-left: -407px;
+  margin-left: -420px;
   z-index: 9999;
 }
 .customNavigation .btn.prev,
@@ -113,6 +113,7 @@
   padding: 0;
   display: inline-block;
   margin: 0 200px;
+  border:0;
 }
 .customNavigation .btn.prev{
   @extend %prev;

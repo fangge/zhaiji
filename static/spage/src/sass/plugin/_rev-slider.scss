@@ -10,7 +10,7 @@ iframe {border: 0;}
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  width: 24px !important;
+  width:18px !important;
   height: 2px !important;
   display: inline-block;
   -webkit-transition: background-color 0.2s, border-color 0.2s;
@@ -27,7 +27,7 @@ iframe {border: 0;}
   -moz-box-shadow: none;
   box-shadow: none;
   background-color: #e7604a;
-  width: 24px !important;
+  width:18px !important;
   height: 2px !important;
 }
 
@@ -59,7 +59,7 @@ iframe {border: 0;}
 /*-------------------------------------------------------*/
 
 .tp-caption.hero-text {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.7);
   text-shadow: none;
   font-weight: 100;
   line-height: 60px;
@@ -76,7 +76,7 @@ iframe {border: 0;}
 }
 
 .tp-caption.medium-text {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 22px;
   line-height: 28px;
   font-family: "Open Sans", sans-serif;
