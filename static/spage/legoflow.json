@@ -24,7 +24,6 @@
         "jQuery": "./src/assets/jquery.min.js"
     },
     "global": {
-
     },
     "externals": {},
     "proxy": {},
