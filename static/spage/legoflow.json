@@ -33,7 +33,9 @@
     "user.dev.args": {},
     "user.build.args": {},
     "env": {},
-    "build.move": [],
+    "build.move": [
+        "./src/fonts/**"
+    ],
     "build.env": "",
     "build.zip": "",
     "img.folder": "",
