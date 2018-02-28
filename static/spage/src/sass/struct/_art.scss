@@ -81,9 +81,20 @@
 }
 .art-blockquote{
   text-align: center;
+  margin-bottom:20px;
   .art-author,.art-info{
     display: inline-block;
     vertical-align: middle;
+  }
+  .art-author{
+    img,p{
+      margin: 0;
+    }
+  }
+  .art-time{
+    font-weight: normal;
+    font-family:"Arial",sans-serif;
+
   }
   .art-like{
     text-align: center;

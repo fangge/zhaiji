@@ -200,6 +200,12 @@
     color: #f68585;
     cursor:pointer;
   }
+  span{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 .art-time{
   color: #dedddd;
