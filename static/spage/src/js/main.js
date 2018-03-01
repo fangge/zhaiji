@@ -773,7 +773,7 @@
     });
 
     // Isotope filter
-    $('.portfolio-filter').on( 'click', 'a', function(e) {
+    $('.portfolio .portfolio-filter').on( 'click', 'a', function(e) {
         e.preventDefault();
         var filterValue = $(this).attr('data-filter');
         $portfolio.isotope({ filter: filterValue });
@@ -785,13 +785,30 @@
 
     /* Inifnite Scroll
    -------------------------------------------------------*/
-    $portfolio.infinitescroll({
+
+    var $portfolio2 = $('#portfolio-container2');
+    $portfolio2.imagesLoaded( function() {
+        $portfolio2.isotope({
+            isOriginLeft: true,
+            stagger: 30
+        });
+        $portfolio2.isotope();
+
+    });
+    $portfolio2.infiniteScroll({
             path: '.pagination__next',
             append:'.work-item',
-            status:''
-
+            history: false,
+            status: '.page-load-status'
         }
     );
+    $portfolio2.on('load.infiniteScroll',function (event,response,path) {
+        var $items = $( response ).find('.work-item');
+        $items.imagesLoaded( function() {
+            $portfolio2.append( $items );
+            $portfolio2.isotope( 'insert', $items );
+        });
+    })
 
     /* Masonry
     -------------------------------------------------------*/
