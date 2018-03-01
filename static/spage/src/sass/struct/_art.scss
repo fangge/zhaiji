@@ -1,13 +1,18 @@
 .art{
   background: #f8f9f9;
 }
+.mobile{
+  .art-banner{
+    background-attachment: fixed!important;
+  }
+}
 .art-banner{
   width: 100%;
   height: 490px;
   background: url(../img/art-banner.jpg) no-repeat center 0;
   background-attachment: fixed;
   text-align: center;
-  padding-top:248px;
+  padding-top:225px;
   box-sizing: border-box;
   h2{
     color: #cfcfcf;
@@ -15,6 +20,7 @@
     font-weight: 600;
     font-family: "Arial Black",sans-serif;
     letter-spacing: -5px;
+    white-space: nowrap;
   }
   p{
     font-size: 12px;
@@ -137,5 +143,42 @@
       width: 198px;
       height: 166px;
     }
+  }
+}
+@media (max-width: 1631px){
+  .art-banner h2,.art-banner h2 span{
+    font-size:60px!important
+  }
+}
+@media (max-width: 1200px){
+  .art-banner h2,.art-banner h2 span{
+    font-size:40px!important;
+    white-space: normal;
+    letter-spacing: 0;
+  }
+  .art-banner h2{
+    line-height: 60px!important;
+  }
+}
+@media (max-width: 991px){
+  .art-banner{
+    padding-top:20%
+  }
+  .list{
+    .art-banner{
+      padding-top:40%;
+    }
+  }
+  .art-banner p{
+    padding:0 20px;
+  }
+  .art-col .col-md-8 h2{
+    font-size: 20px;
+  }
+  .art-cont h1{
+    font-size:38px;
+  }
+  .list .heading{
+    font-size: 20px;
   }
 }

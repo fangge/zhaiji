@@ -211,5 +211,25 @@
   color: #dedddd;
   font-size: 36px;
   font-style: normal;
-  font-family: "Helvetica Neue";
+  font-family: "Arial",sans-serif;
+  font-weight:normal;
+}
+
+@media (max-width: 991px) {
+  .promo-section h2.title{
+    padding-bottom:45px;
+  }
+  .customNavigation{
+    margin-left: -168px;
+    top: 137px;
+  }
+  .customNavigation .btn.prev, .customNavigation .btn.next{
+    margin: 0 75px;
+  }
+  .promo-section article .art-box{
+    padding:20px 30px;
+  }
+  .promo-section article h2{
+    white-space: normal;
+  }
 }

@@ -437,8 +437,13 @@ ol.numbers {
     color: #fff;
 }
 .footer-banner{
-    @extend %footer_banner
+   width: 100%;
+    img{
+        display: block;
+        width: 100%;
+    }
 }
+
 @import "plugin/responsive";
 @import "plugin/spacings";
 @import "plugin/animate.min";
