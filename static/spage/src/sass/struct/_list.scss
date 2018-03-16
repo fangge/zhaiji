@@ -76,9 +76,12 @@
   animation-direction: reverse;
 }
 .infinite-scroll-last,.infinite-scroll-error{
-  text-indent:-999em;
-  @extend %nomore;
-  margin: 0 auto;
-  padding: 40px 0;
+  i{
+    display: block;
+    text-indent:-999em;
+    @extend %nomore;
+    margin: 40px auto;
+  }
+  margin-bottom:40px;
   border-bottom:1px solid #e5e5e5;
 }
