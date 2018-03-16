@@ -311,9 +311,11 @@ input[type="email"].newsletter-input:focus {
     margin-left:20px;
   }
 }
+.address-img-link{
+  display: block;
+}
 .address-img{
   display:block;
-  width: 100%;
   border-radius:10px;
 }
 .friend-link{
