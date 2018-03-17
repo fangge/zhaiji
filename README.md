@@ -7,3 +7,4 @@ https://github.com/legoflow/legoflow
 - static 静态页开发
   - spage 静态页模板
   - exp 示例模板
+- temple wordpress模板
