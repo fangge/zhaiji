@@ -780,12 +780,12 @@
     });
 
     // Isotope filter
-    $('.portfolio .portfolio-filter').on( 'click', 'a', function(e) {
+    $('#portfolio1 .portfolio-filter').on( 'click', 'a', function(e) {
         e.preventDefault();
         var filterValue = $(this).attr('data-filter');
         $portfolio.isotope({ filter: filterValue });
 
-        $('.portfolio-filter a').removeClass('active');
+        $('#portfolio1 .portfolio-filter a').removeClass('active');
         $(this).closest('a').addClass('active');
 
     });
@@ -816,6 +816,15 @@
                 $portfolio2.isotope( 'insert', $items );
             });
         })
+        $('#portfolio2 .portfolio-filter').on( 'click', 'a', function(e) {
+            e.preventDefault();
+            var filterValue = $(this).attr('data-filter');
+            $portfolio2.isotope({ filter: filterValue });
+
+            $('#portfolio2 .portfolio-filter a').removeClass('active');
+            $(this).closest('a').addClass('active');
+
+        });
     }
 
 
