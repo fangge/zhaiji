@@ -743,8 +743,7 @@
             preload: [0,1]
         },
         image: {
-            titleSrc: 'title',
-            verticalFit: true
+            titleSrc: 'title'
         }
     });
 
@@ -1008,3 +1007,7 @@ function container_full_height_init(){
         $(".container-full-height").height($(window).height());
     })(jQuery);
 }
+
+$('.read-more').on('click',function () {
+    $('body,html').animate({scrollTop:$('.promo-section .title').offset().top-100},400);
+})
