@@ -432,7 +432,7 @@ get_header(); ?>
                                 <div class="work-overlay">
                                     <div class="project-icons">
                                         <?php if ($item['is_photo']) { ?>
-                                        <a href="<?php echo $item['resource']; ?>" class="lightbox-gallery" title="<?php echo $item['title']; ?>"><i class="fa fa-search"></i></a>
+                                        <a href="<?php echo $item['img_url']; ?>" class="lightbox-gallery" title="<?php echo $item['title']; ?>"><i class="fa fa-search"></i></a>
                                         <?php } else { ?>
                                         <a href="<?php echo $item['resource']; ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
                                         <?php } ?>
