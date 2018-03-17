@@ -6,6 +6,7 @@ Template Name: Works Template
 get_header(); ?>
 
 <?php 
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $mypost = array( 
         'post_type' => 'zhaiji_works', 
         'posts_per_page' => 1,
@@ -56,7 +57,6 @@ get_header(); ?>
     		<div id="portfolio-container2" class="works-grid grid-4-col no-gutter">
 
     	        <?php 
-                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $works_type = array(
                                     'web-design',
                                     'branding',
@@ -76,7 +76,7 @@ get_header(); ?>
                         )
                     );
 
-                    $loop = new WP_Query( $mypost ); 
+                    $loop = new WP_Query( $mypost );
                 ?>
 
     			<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
@@ -143,7 +143,7 @@ get_header(); ?>
     <p class="infinite-scroll-error"><i>No more pages to load</i></p>
 </div>
 
-<?php if (count($pages) > 0 && count($pages) <= 16) { ?>
+<?php if ($loop->post_count > 0 && $loop->post_count <= 16) { ?>
 <a href="/works/page/<?php echo ++$paged ?>/" class="pagination__next"></a>
 <?php } ?>
 
