@@ -317,7 +317,9 @@ input[type="email"].newsletter-input:focus {
 .address-img{
   display:block;
   border-radius:10px;
+  max-width: 100%;
 }
+
 .friend-link{
   display: inline-block;
   color:#a6a6a6;
