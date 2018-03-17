@@ -101,7 +101,7 @@ get_header(); ?>
                                 <div class="work-overlay">
                                     <div class="project-icons">
                                     	<?php if ('photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true ))) { ?>
-                                    	<a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ); ?>" class="lightbox-gallery" title="<?php the_title(); ?>"><i class="fa fa-search"></i></a>
+                                    	<a href="<?php echo $img_url; ?>" class="lightbox-gallery" title="<?php the_title(); ?>"><i class="fa fa-search"></i></a>
                                         <?php } else { ?>
                                     	<a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ); ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
                                         <?php } ?>

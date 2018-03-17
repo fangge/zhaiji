@@ -92,7 +92,7 @@ get_header(); ?>
                     <h3><?php the_title(); ?></h3>
                     <blockquote><?php echo esc_html( get_post_meta( $post->ID, 'title_en', true ) ); ?></blockquote>
                     <p class="mb-10"><?php echo esc_html( get_the_excerpt() ); ?></p>
-                    <a href="#" class="read-more sliding-link">Read More</a>
+                    <a class="read-more sliding-link">Read More</a>
                 </div>
             </div> <!-- end service item -->
             <?php $i++ ?>
