@@ -195,8 +195,9 @@
 .service-item-box{
   height: 365px;
 }
-.service-item-box i{
+.service-item-box img{
   display: block;
+  margin: 0 auto;
 }
 .service-item-box blockquote{
   color: #7b8386;
@@ -209,13 +210,4 @@
   color: #7b8488;
   font-size: 12px;
   line-height: 18px;
-}
-.icon-game{
-  @extend %icon-game;
-}
-.icon-design{
-  @extend %icon-design;
-}
-.icon-3ds{
-  @extend %icon-3ds;
 }
