@@ -43,8 +43,7 @@
                         <div class="entry-list">
                             <ul>
                                 <li class="entry-li">
-                                    <a href="" class="friend-link">热血青文</a>
-                                    <a href="" class="friend-link">易点科技</a>
+                                   <?php wpjam_blogroll();?>
                                 </li>
 
                             </ul>
