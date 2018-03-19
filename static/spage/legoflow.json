@@ -33,7 +33,8 @@
     "user.build.args": {},
     "env": {},
     "build.move": [
-        "./src/fonts/**"
+        "./src/fonts/**",
+        "./src/css/owl-carousel/**"
     ],
     "build.env": "",
     "build.zip": "",
