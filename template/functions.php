@@ -595,7 +595,6 @@ add_filter( 'frontpage_template',  'zhaiji_front_page_template' );
 //require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 
-<?php
 /*
 Plugin Name: WPJAM Blogroll
 Plugin URI: http://blog.wpjam.com/m/wpjam-blogroll/
@@ -620,7 +619,7 @@ function wpjam_blogroll(){
         $wpjam_blogrolls = explode("\n", $wpjam_blogroll_setting);
         foreach ($wpjam_blogrolls as $wpjam_blogroll) {
             $wpjam_blogroll = explode("|", $wpjam_blogroll );
-            echo ' | <a href="'.trim($wpjam_blogroll[0]).'" title="'.esc_attr(trim($wpjam_blogroll[1])).'">'.trim($wpjam_blogroll[1]).'</a>';
+            echo '<a class="friend-link" href="'.trim($wpjam_blogroll[0]).'" title="'.esc_attr(trim($wpjam_blogroll[1])).'">'.trim($wpjam_blogroll[1]).'</a>';
         }
     }
 }
