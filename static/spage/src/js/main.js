@@ -41,8 +41,20 @@
     });
 
     $('.navbar-nav').find('a').on('click',function () {
-        var top = $('.'+$(this).data('scroll')).offset().top;
-        $('html,body').animate({'scrollTop':top},400)
+        var top,t = $(this);
+        if($('body').hasClass('list') || $('body').hasClass('art')){
+            if(t.data('scroll') == 'footer'){
+                top =  $('.'+t.data('scroll')).offset().top
+                $('html,body').animate({'scrollTop':top},400)
+            }else{
+                $('html,body').animate({'scrollTop':$('.heading').offset().top},400)
+            }
+
+        }else{
+            top = $('.'+t.data('scroll')).offset().top
+            $('html,body').animate({'scrollTop':top},400)
+        }
+
     })
 
     $('.art-like i').on('click',function () {
