@@ -92,7 +92,7 @@ get_header(); ?>
                     <h3><?php the_title(); ?></h3>
                     <blockquote><?php echo esc_html( get_post_meta( $post->ID, 'title_en', true ) ); ?></blockquote>
                     <p class="mb-10"><?php echo esc_html( get_the_excerpt() ); ?></p>
-                    <a href="#" class="read-more sliding-link">Read More</a>
+                    <a class="read-more sliding-link">Read More</a>
                 </div>
             </div> <!-- end service item -->
             <?php $i++ ?>
@@ -432,7 +432,7 @@ get_header(); ?>
                                 <div class="work-overlay">
                                     <div class="project-icons">
                                         <?php if ($item['is_photo']) { ?>
-                                        <a href="<?php echo $item['resource']; ?>" class="lightbox-gallery" title="<?php echo $item['title']; ?>"><i class="fa fa-search"></i></a>
+                                        <a href="<?php echo $item['img_url']; ?>" class="lightbox-gallery" title="<?php echo $item['title']; ?>"><i class="fa fa-search"></i></a>
                                         <?php } else { ?>
                                         <a href="<?php echo $item['resource']; ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
                                         <?php } ?>

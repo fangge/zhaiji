@@ -22,7 +22,6 @@
         <ul>
         <?php
             $args = array(
-                'tag' => 'recommend',
                 'category_name' => 'news',
                 'showposts'=>5,
                 'orderby' => 'post_modified',
