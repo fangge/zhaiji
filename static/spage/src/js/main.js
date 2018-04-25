@@ -4,6 +4,48 @@
 
     $(window).load(function() {
 
+        $.fn.postLike = function() {
+            // if ($(this).hasClass('done')) {
+            //     alert('您已赞过该文章');
+            //     return false;
+            // } else {
+            //     $(this).addClass('done');
+            //     var id = $(this).data("id"),
+            //         action = $(this).data('action'),
+            //         rateHolder = $(this).children('.count');
+            //     var ajax_data = {
+            //         action: "specs_zan",
+            //         um_id: id,
+            //         um_action: action
+            //     };
+            //     $.post("http://www.hx-h.com/zhaiji_v2/wp-admin/admin-ajax.php", ajax_data,
+            //         function(data) {
+            //             $(rateHolder).html(data);
+            //         });
+            //     return false;
+            // }
+
+            if (!$(this).hasClass('done'))$(this).addClass('done');
+            var id = $(this).data("id"),
+                action = $(this).data('action'),
+                rateHolder = $(this).children('.count');
+            var ajax_data = {
+                action: "specs_zan",
+                um_id: id,
+                um_action: action
+            };
+            $.post("http://www.hx-h.com/zhaiji_v2/wp-admin/admin-ajax.php", ajax_data,
+                function(data) {
+                    $(rateHolder).html(data);
+                });
+            return false;
+        };
+
+        $(document).on("click", ".specsZan",
+            function() {
+                $(this).postLike();
+        });
+
         // Preloader
         $('.loader').fadeOut();
         $('.loader-mask').delay(350).fadeOut('slow');
@@ -57,11 +99,7 @@
 
     })
 
-    $('.art-like i').on('click',function () {
-        var t = $(this).parent().find('span');
-        var num = parseInt(t.text())+1;
-        t.html(num);
-    })
+
     /* Sticky Navigation
     -------------------------------------------------------*/
     $(window).scroll(function(){

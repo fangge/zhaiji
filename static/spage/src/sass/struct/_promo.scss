@@ -197,8 +197,11 @@
   i{
     font-size:14px;
     margin-right:5px;
-    color: #f68585;
     cursor:pointer;
+    user-select: none;
+    &.done{
+      color: #f68585;
+    }
   }
   span{
     -webkit-user-select: none;
