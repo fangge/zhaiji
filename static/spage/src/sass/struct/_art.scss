@@ -184,3 +184,27 @@
     padding: 11px 6px 6px 0;
   }
 }
+@media (max-width: 991px) {
+  .mobile .art-banner{
+    background-size:100%;
+    background-attachment:scroll!important;;
+    height: 98px;
+    padding:0;
+  }
+  .art-cont{
+    h1{
+      font-size:26px;
+      white-space: normal;
+    }
+    p{
+      padding:0 20px;
+      margin-bottom:10px;
+    }
+    img{
+      height: auto;
+    }
+  }
+  .bdsharebuttonbox{
+    width: 70%;
+  }
+}

@@ -1,5 +1,5 @@
 {
-    "version": "1.0.58",
+    "version": "1.0.61",
     "type": "pc",
     "assets": "",
     "es6": true,
@@ -23,8 +23,7 @@
         "jquery": "./src/assets/jquery.min.js",
         "jQuery": "./src/assets/jquery.min.js"
     },
-    "global": {
-    },
+    "global": {},
     "externals": {},
     "proxy": {},
     "ts": {},
