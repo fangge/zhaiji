@@ -82,16 +82,20 @@
 
     });
 
+    if(!$('body').hasClass('list') && !$('body').hasClass('art')){
+        var value = location.search.match(new RegExp(`[?&]${"nav"}=([^&]*)(&?)`, 'i'));
+        value = value ? decodeURIComponent(value[1]) : value;
+        setTimeout(function () {
+            $('html,body').animate({'scrollTop':$('.'+value).offset().top},400);
+        },1000)
+    }
+
+
+
     $('.navbar-nav').find('a').on('click',function () {
         var top,t = $(this);
         if($('body').hasClass('list') || $('body').hasClass('art')){
-            if(t.data('scroll') == 'footer'){
-                top =  $('.'+t.data('scroll')).offset().top
-                $('html,body').animate({'scrollTop':top},400)
-            }else{
-                $('html,body').animate({'scrollTop':$('.heading').offset().top},400)
-            }
-
+            location.href='/?nav='+t.data('scroll');
         }else{
             top = $('.'+t.data('scroll')).offset().top
             $('html,body').animate({'scrollTop':top},400)
