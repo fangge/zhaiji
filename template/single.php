@@ -48,12 +48,25 @@ get_header(); ?>
                     </div>
                     <div class="art-info">
                         <div class="art-time"><?php the_time('y/n/j') ?></div>
-                        <div class="art-like"><i class="fa fa-heart"></i><span><?php echo(rand(1000, 100000)); ?></span></div>
+						<div class="art-like">
+    <i data-action="ding" data-id="<?php the_ID(); ?>" class="fa fa-heart specsZan <?php if(isset($_COOKIE['specs_zan_'.$post->ID])) echo 'done';?>"><span class="count">
+        <?php if( get_post_meta($post->ID,'specs_zan',true) ){
+            		echo get_post_meta($post->ID,'specs_zan',true);
+                } else {
+					echo '0';
+				}?></span>
+    </i>
+</div>
                     </div>
                 </div>
                 <?php the_content(); ?>
                 <p><br></p>
             <?php endwhile; // End of the loop. ?>
+			
+			<div class="bdsharebuttonbox"><span>分享到：</span><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"<?php the_title(); ?>","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["weixin","tsina","sqq","qzone"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+			
+
         </article>
     </div>
     

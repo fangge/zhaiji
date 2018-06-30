@@ -105,7 +105,12 @@ get_header(); ?>
                                         <?php } else { ?>
                                     	<a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ); ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
                                         <?php } ?>
+                                        <?php $target_link = esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ); ?>
+                                        <?php if ($target_link) { ?>
+                                        <a href="<?php echo $target_link; ?>" class="project-icon" target="_blank"><i class="fa fa-link"></i></a>
+                                        <?php } else { ?>
                                         <a href="#" class="project-icon"><i class="fa fa-link"></i></a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="work-description">

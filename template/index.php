@@ -66,14 +66,15 @@ get_header(); ?>
         </div>
     </div>
 </section>
-        <!-- Icon Boxes -->
+
+<!-- Icon Boxes -->
 <section class="section-wrap icon-boxes bg-light pb-40 pb-sml-80">
     <div class="container">
 
         <div class="row">
 
             <?php 
-                query_posts('category_name=notice&posts_per_page=3'); 
+                query_posts('category_name=brand&posts_per_page=3'); 
                 $i = 0;
             ?>
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -102,7 +103,8 @@ get_header(); ?>
         </div>
     </div>
 </section> <!-- end icon boxes -->
-        <!-- Promo Section -->
+
+<!-- Promo Section -->
 <section class="section-wrap promo-section pt-90 pb-130 pt-mdm-80 pb-mdm-80 relative">
     <h2 class="title">ZAKEA BLOG</h2>
     <div class="customNavigation">
@@ -133,7 +135,15 @@ get_header(); ?>
                                 <p><?php the_author_nickname(); ?></p>
                             </div>
                             <div class="art-info">
-                                <div class="art-like"><i class="fa fa-heart"></i><span><?php echo(rand(1000, 100000)); ?></span></div>
+                                <div class="art-like">
+    <i data-action="ding" data-id="<?php the_ID(); ?>" class="fa fa-heart specsZan <?php if(isset($_COOKIE['specs_zan_'.$post->ID])) echo 'done';?>"><span class="count">
+        <?php if( get_post_meta($post->ID,'specs_zan',true) ){
+            		echo get_post_meta($post->ID,'specs_zan',true);
+                } else {
+					echo '0';
+				}?></span>
+    </i>
+</div>
                                 <div class="art-time"><?php the_time('y/n/j') ?></div>
                             </div>
                             <div class="art-box">
@@ -142,7 +152,7 @@ get_header(); ?>
                                 <p>……</p>
                             </div>
 
-                            <a href="<?php the_permalink(); ?>" class="btn btn-md art-btn btn btn-md btn-icon mt-40 mt-mdm-20">MORE CONTENT<i class="fa fa-angle-right"></i></a>
+                            <a href="<?php the_permalink(); ?>" class="btn btn-md art-btn btn btn-md btn-icon mt-40 mt-mdm-20" target="_blank">MORE CONTENT<i class="fa fa-angle-right"></i></a>
                         </article>
                     </div>
                 </div>
@@ -152,58 +162,27 @@ get_header(); ?>
         <?php endif; ?>
     </div>
 </section> <!-- end promo section -->
-        <!-- Testimonials -->
+
+<!-- Testimonials -->
 <section class="section-wrap parallax-testimonials nopadding relative">
 
     <div class="relative">
         <div id="owl-testimonials" class="owl-carousel owl-theme light-arrows text-center">
 
-            <div class="item">
-                <div class="container testimonial">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h2>Who we are</h2>
-                            <p class="testimonial-text">宅寂ZAKEA（广州宅寂品牌策划有限公司）是品牌视觉设计，概念创意传达，互联网用户体验，市场营销策划分析的高端品牌定制机构。<br>
-                                致力于为注重“企业形象”和“品牌气质”的客户提供相互尊敬值得信任的网站革新服务。<br>
-                                公司成立于2001年，始由历任国际4A广告互动公司的资深总监合伙创办。<br>
-                                创意始终坚持颠覆传统，超越平庸，深度融合创新思维与互动技术，致力于为客户呈现有效且具针对性的互动创意。
-                            </p>
+            <?php query_posts('category_name=testimonial&showposts=5&orderby=post_modified&order=DESC'); ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                <div class="item">
+                    <div class="container testimonial">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h2><?php the_title(); ?></h2>
+                                <p class="testimonial-text"><?php the_excerpt(); ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="item">
-                <div class="container testimonial">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h2>Our creativity</h2>
-                            <p class="testimonial-text">我们是天生的完美主义者，我们有着本能的创造力。对我们而言，挑战自己的设计创作极限是种心灵愉悦。我们乐于分享自己<br>
-                                的创作果实和战略思想，只为创作更直观友好的用户体验。<br>
-                                这势必成为品牌策划之先驱。简而言之，我们是数字化创新的梦想家和探索家，致力于成为行业发展的典范。这些年里，
-                                我们不断超越强劲对手，将荣誉和声望尽收囊中。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="container testimonial">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h2>Our idea</h2>
-                            <p class="testimonial-text">宅寂（广州宅寂品牌策划有限公司）源自人们对万物敏锐而深刻的观察。痴迷为“宅”，蕴含着不沉湎于世俗财物、
-                                社会地位，追求美好之物的超凡心境；极简为“寂”，传达“简约就是美”的脱俗审美态度。<br>
-                                “宅寂”在赋予人们对艺术佳作或景致优雅之美的鉴赏能力的同时，不忘向世人传达那些终将转瞬即逝的深刻哲理。<br>
-                                宅寂崇尚“少即是多”的审美理念，有着和“大道至简”的异曲同工之妙。它们无不告诫人们摒弃世俗的杂乱无章，褪去
-                                浮华和喧嚣，取得不娇柔、无藻饰的简约之美。带着“宅寂”的理念设计出来的作品 ，绝不是偶然随意的肤浅行为，<br>
-                                它不花哨不累赘，反而充满宁静和协调，把设计精髓的“极简”艺术诠释得淋漓尽致。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endwhile; ?>
+            <?php endif; ?>
         </div>
 
     </div>
@@ -218,46 +197,20 @@ get_header(); ?>
 
             <div id="owl-partners" class="owl-carousel owl-theme">
 
-                <div class="item">
-                    <a>
-                        <img src="<?php bloginfo('template_url'); ?>/img/partner_logo_dark_1.png?t=1519784610547" alt="">
-                    </a>
-                </div>
-                <div class="item">
-                    <a>
-                        <img src="<?php bloginfo('template_url'); ?>/img/partner_logo_dark_2.png?t=1519784610547" alt="">
-                    </a>
-                </div>
-                <div class="item">
-                    <a>
-                        <img src="<?php bloginfo('template_url'); ?>/img/partner_logo_dark_3.png?t=1519784610547" alt="">
-                    </a>
-                </div>
-                <div class="item">
-                    <a>
-                        <img src="<?php bloginfo('template_url'); ?>/img/partner_logo_dark_4.png?t=1519784610547" alt="">
-                    </a>
-                </div>
-                <div class="item">
-                    <a>
-                        <img src="<?php bloginfo('template_url'); ?>/img/partner_logo_dark_5.png?t=1519784610547" alt="">
-                    </a>
-                </div>
-                <div class="item">
-                    <a>
-                        <img src="<?php bloginfo('template_url'); ?>/img/partner_logo_dark_6.png?t=1519784610547" alt="">
-                    </a>
-                </div>
-                <div class="item">
-                    <a>
-                        <img src="<?php bloginfo('template_url'); ?>/img/partner_logo_dark_1.png?t=1519784610547" alt="">
-                    </a>
-                </div>
-                <div class="item">
-                    <a>
-                        <img src="<?php bloginfo('template_url'); ?>/img/partner_logo_dark_2.png?t=1519784610547" alt="">
-                    </a>
-                </div>
+                <?php query_posts('category_name=partner&nopaging=true'); ?>
+                <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                    <div class="item">
+                        <a>
+                            <img src="<?php 
+                                            $img_id = get_post_thumbnail_id();
+                                            $img_url = wp_get_attachment_image_src($img_id, 'full');
+                                            $img_url = $img_url[0];
+                                            echo $img_url;
+                                        ?>" alt="">
+                        </a>
+                    </div>
+                <?php endwhile; ?>
+                <?php endif; ?>
 
             </div> <!-- end carousel -->
 
@@ -345,6 +298,7 @@ get_header(); ?>
                             'title' => get_the_title(),
                             'is_photo' => 'photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
                             'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
+                            'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
                         ))
                     ?>
 
@@ -400,6 +354,7 @@ get_header(); ?>
                             'title' => get_the_title(),
                             'is_photo' => 'photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
                             'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
+                            'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
                         ))
                     ?>
 
@@ -436,7 +391,11 @@ get_header(); ?>
                                         <?php } else { ?>
                                         <a href="<?php echo $item['resource']; ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
                                         <?php } ?>
-                                        <a href="#" class="project-icon"><i class="fa fa-link"></i></a>
+										<?php if ($item['target_link']) { ?>
+                                        <a href="<?php echo $item['target_link']; ?>" class="project-icon" target="_blank"><i class="fa fa-link"></i></a>
+										<?php } else { ?>
+										<a href="#" class="project-icon"><i class="fa fa-link"></i></a>
+										<?php } ?>
                                     </div>
                                 </div>
                                 <div class="work-description">
@@ -454,7 +413,7 @@ get_header(); ?>
 
         <div class="row mt-40">
             <div class="col-md-12 text-center">
-                <a href="/works/" class="btn btn-lg btn-icon btn-white" id="load-more"><span>More Works</span><i class="fa fa-angle-right"></i></a>
+                <a href="/zhaiji_v2/works/" class="btn btn-lg btn-icon btn-white" id="load-more" target="_blank"><span>More Works</span><i class="fa fa-angle-right"></i></a>
             </div>
         </div>
     </div>

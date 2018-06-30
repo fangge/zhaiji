@@ -9,7 +9,7 @@
 			delay:12000,
 			responsiveLevels:[1280,1024,778,420],
 			gridwidth:[1280,1024,860,420],
-			gridheight:[900,800,600,500],
+			gridheight:[880,800,600,500],
 			minHeight: 300,
 
 			hideThumbs:10,
