@@ -8,3 +8,4 @@ https://github.com/legoflow/legoflow
   - spage 静态页模板
   - exp 示例模板
 - temple wordpress模板
+- zhaiji-works wordpress插件
