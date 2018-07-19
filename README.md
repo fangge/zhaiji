@@ -9,3 +9,6 @@ https://github.com/legoflow/legoflow
   - exp 示例模板
 - temple wordpress模板
 - zhaiji-works wordpress插件
+
+## 博客地址
+http://www.hx-h.com/zhaiji_v2/
