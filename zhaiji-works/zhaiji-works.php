@@ -32,7 +32,7 @@ function create_zhaiji_works() {
  
             'public' => true,
             'menu_position' => 15,
-            'supports' => array( 'title', 'editor', 'thumbnail' ),
+            'supports' => array( 'title', 'editor', 'thumbnail','excerpt' ),
             'taxonomies' => array( '' ),
             'menu_icon' => plugins_url( 'images/image.png', __FILE__ ),
             'has_archive' => true
@@ -66,6 +66,7 @@ function display_zhaiji_works_meta_box( $works ) {
 				<select style="width: 100px" name="zhaiji_works_catetory">
 					<option value="photo" <?php echo selected( 'photo', $works_category ); ?>>图片</option>
 					<option value="video" <?php echo selected( 'video', $works_category ); ?>>视频</option>
+                    <option value="blog" <?php echo selected( 'blog', $works_category ); ?>>博文</option>
 				</select>
 			</td>
 		</tr>
@@ -106,10 +107,10 @@ function include_template_function( $template_path ) {
         if ( is_single() ) {
             // checks if the file exists in the theme first,
             // otherwise serve the file from the plugin
-            if ( $theme_file = locate_template( array ( 'single-zhaiji_works.php' ) ) ) {
+            if ( $theme_file = locate_template( array ( 'archive-zhaiji_works.php' ) ) ) {
                 $template_path = $theme_file;
             } else {
-                $template_path = plugin_dir_path( __FILE__ ) . '/single-zhaiji_works.php';
+                $template_path = plugin_dir_path( __FILE__ ) . '/archive-zhaiji_works.php';
             }
         }
     }
@@ -149,7 +150,7 @@ add_action( 'manage_posts_custom_column', 'populate_columns' );
 function populate_columns( $column ) {
     if ( 'zhaiji_works_category' == $column ) {
         $works_category = get_post_meta( get_the_ID(), 'works_category', true );
-        echo $works_category == 'photo' ? '图片' : '视频';
+        echo $works_category == 'photo' ? '图片' : ($works_category == 'video'?'视频':'博客');
     } elseif ( 'zhaiji_works_tag' == $column ) {
 		$terms = get_the_terms($post->ID, 'zhaiji_works_media_genre', ' ');
         if ($terms) {

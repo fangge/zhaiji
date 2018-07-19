@@ -296,6 +296,7 @@ get_header(); ?>
                             'class' => $class,
                             'img_url' => $img_url,
                             'title' => get_the_title(),
+                            'excerpt' => get_the_excerpt(),
                             'is_photo' => 'photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
                             'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
                             'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
@@ -352,6 +353,7 @@ get_header(); ?>
                             'class' => $class,
                             'img_url' => $img_url,
                             'title' => get_the_title(),
+                            'excerpt' => get_the_excerpt(),
                             'is_photo' => 'photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
                             'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
                             'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
@@ -399,9 +401,9 @@ get_header(); ?>
                                     </div>
                                 </div>
                                 <div class="work-description">
-                                    <h2><a href="#"><?php echo $item['title']; ?></a></h2>
+                                    <h2><?php echo $item['title']; ?></h2>
                                     <span>
-                                        <a href="#"><?php echo $item['class']; ?></a>
+                                        <?php echo $item['excerpt']; ?>
                                     </span>
                                 </div>
                             </div>
@@ -413,7 +415,7 @@ get_header(); ?>
 
         <div class="row mt-40">
             <div class="col-md-12 text-center">
-                <a href="/zhaiji_v2/works/" class="btn btn-lg btn-icon btn-white" id="load-more" target="_blank"><span>More Works</span><i class="fa fa-angle-right"></i></a>
+                <a href="/wordpress/works/" class="btn btn-lg btn-icon btn-white" id="load-more" target="_blank"><span>More Works</span><i class="fa fa-angle-right"></i></a>
             </div>
         </div>
     </div>
