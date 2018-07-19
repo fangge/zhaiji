@@ -1065,3 +1065,5 @@ function container_full_height_init(){
 $('.read-more').on('click',function () {
     $('body,html').animate({scrollTop:$('.promo-section .title').offset().top-100},400);
 })
+
+$('article img').bind("contextmenu", function(e){ return false; })
