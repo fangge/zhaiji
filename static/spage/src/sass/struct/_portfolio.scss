@@ -138,6 +138,14 @@
 .work-item .work-description h2 a:hover {
   color: #e7604a;
 }
+.work-item .work-description > span{
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #979ba3;
+  font-size: 12px;
+}
 .work-item .work-description > span > a {
   color: #979ba3;
   font-size: 12px;
