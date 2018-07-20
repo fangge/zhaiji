@@ -1066,4 +1066,8 @@ $('.read-more').on('click',function () {
     $('body,html').animate({scrollTop:$('.promo-section .title').offset().top-100},400);
 })
 
+$('article img').each(function () {
+    this.parentNode.className = 'lightbox';
+})
+$('.lightbox').swipebox();
 $('article img').bind("contextmenu", function(e){ return false; })
