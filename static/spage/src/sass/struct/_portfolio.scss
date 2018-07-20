@@ -138,7 +138,7 @@
 .work-item .work-description h2 a:hover {
   color: #e7604a;
 }
-.work-item .work-description > span{
+.work-item .work-description > span,.work-item .work-description > span p{
   display: block;
   white-space: nowrap;
   text-overflow: ellipsis;
