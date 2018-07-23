@@ -3,7 +3,7 @@
 Plugin Name: Zhaiji Works
 Plugin URI: http://www.zhaiji.com/
 Description: Zhaiji Works diy
-Version: 1.0
+Version: 1.1
 Author: Jaward
 Author URI: http://www.jaward.cn/
 License: GPLv2
@@ -57,7 +57,8 @@ function display_zhaiji_works_meta_box( $works ) {
 	// Retrieve current name of the Director and Movie Rating based on review ID
 	$works_category = esc_html( get_post_meta( $works->ID, 'works_category', true ) );
 	$works_resource = esc_html( get_post_meta( $works->ID, 'works_resource', true ) );
-	$works_link = esc_html( get_post_meta( $works->ID, 'works_link', true ) );
+    $works_link = esc_html( get_post_meta( $works->ID, 'works_link', true ) );
+    $works_big_pic = esc_html( get_post_meta( $works->ID, 'works_big_pic', true ) );
 	?>
 	<table>
 		<tr>
@@ -76,7 +77,11 @@ function display_zhaiji_works_meta_box( $works ) {
 		</tr>
 		<tr>
 			<td style="width: 100%">跳转地址</td>
-			<td><input type="text" size="80" name="zhaiji_works_link" value="<?php echo $works_link; ?>" /></td>
+			<td><input type="text" size="80" name="zhaiji_works_link" value="<?php echo $works_link; ?>"  placeholder="如果不填则取文章的固定链接"/></td>
+		</tr>
+        <tr>
+			<td style="width: 100%">大图地址</td>
+			<td><input type="text" size="80" name="zhaiji_works_bigpic" value="<?php echo $works_big_pic; ?>"/></td>
 		</tr>
 	</table>
 <?php 
@@ -88,17 +93,21 @@ function add_zhaiji_works_fields( $zhaiji_works_id, $zhaiji_works ) {
     // Check post type for works
     if ( $zhaiji_works->post_type == 'zhaiji_works' ) {
         // Store data in post meta table if present in post data
-        if ( isset( $_POST['zhaiji_works_catetory'] ) && $_POST['zhaiji_works_catetory'] != '' ) {
-            update_post_meta( $zhaiji_works_id, 'works_category', $_POST['zhaiji_works_catetory'] );
+        if ( isset( $_POST['zhaiji_works_catetory'] ) ) {
+            update_post_meta( $zhaiji_works_id, 'works_category', sanitize_text_field($_POST['zhaiji_works_catetory']) );
         }
-        if ( isset( $_POST['zhaiji_works_resource'] ) && $_POST['zhaiji_works_resource'] != '' ) {
-            update_post_meta( $zhaiji_works_id, 'works_resource', $_POST['zhaiji_works_resource'] );
+        if ( isset( $_POST['zhaiji_works_resource'] ) ) {
+            update_post_meta( $zhaiji_works_id, 'works_resource', sanitize_text_field($_POST['zhaiji_works_resource']) );
         }
-		if ( isset( $_POST['zhaiji_works_link'] ) && $_POST['zhaiji_works_link'] != '' ) {
-            update_post_meta( $zhaiji_works_id, 'works_link', $_POST['zhaiji_works_link'] );
+		if ( isset( $_POST['zhaiji_works_link'] )){
+            update_post_meta( $zhaiji_works_id, 'works_link', sanitize_text_field($_POST['zhaiji_works_link']) );
+        }
+        if ( isset( $_POST['zhaiji_works_bigpic'] )) {
+            update_post_meta( $zhaiji_works_id, 'works_big_pic', sanitize_text_field($_POST['zhaiji_works_bigpic']) );
         }
     }
 }
+
 
 add_filter( 'template_include', 'include_template_function', 1 );
 

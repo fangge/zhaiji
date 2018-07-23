@@ -295,11 +295,13 @@ get_header(); ?>
                         array_push($verticalArr, array(
                             'class' => $class,
                             'img_url' => $img_url,
+                            'art_url' =>get_permalink(),
                             'title' => get_the_title(),
                             'excerpt' => get_the_excerpt(),
                             'is_photo' => 'photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
                             'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
                             'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
+                            'big_pic' => esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true ) )
                         ))
                     ?>
 
@@ -353,10 +355,12 @@ get_header(); ?>
                             'class' => $class,
                             'img_url' => $img_url,
                             'title' => get_the_title(),
+                            'art_url' =>get_permalink(),
                             'excerpt' => get_the_excerpt(),
                             'is_photo' => 'photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
                             'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
                             'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
+                            'big_pic' => esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true ) )
                         ))
                     ?>
 
@@ -389,14 +393,14 @@ get_header(); ?>
                                 <div class="work-overlay">
                                     <div class="project-icons">
                                         <?php if ($item['is_photo']) { ?>
-                                        <a href="<?php echo $item['img_url']; ?>" class="lightbox-gallery" title="<?php echo $item['title']; ?>"><i class="fa fa-search"></i></a>
+                                        <a href="<?php echo $item['big_pic']; ?>" class="lightbox-gallery" title="<?php echo $item['title']; ?>"><i class="fa fa-search"></i></a>
                                         <?php } else { ?>
                                         <a href="<?php echo $item['resource']; ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
                                         <?php } ?>
 										<?php if ($item['target_link']) { ?>
                                         <a href="<?php echo $item['target_link']; ?>" class="project-icon" target="_blank"><i class="fa fa-link"></i></a>
 										<?php } else { ?>
-										<a href="#" class="project-icon"><i class="fa fa-link"></i></a>
+										<a href="<?php echo $item['art_url']; ?>" class="project-icon" target="_blank"><i class="fa fa-link"></i></a>
 										<?php } ?>
                                     </div>
                                 </div>
@@ -415,7 +419,7 @@ get_header(); ?>
 
         <div class="row mt-40">
             <div class="col-md-12 text-center">
-                <a href="/wordpress/works/" class="btn btn-lg btn-icon btn-white" id="load-more" target="_blank"><span>More Works</span><i class="fa fa-angle-right"></i></a>
+                <a href="/zhaiji_v2/works/" class="btn btn-lg btn-icon btn-white" id="load-more" target="_blank"><span>More Works</span><i class="fa fa-angle-right"></i></a>
             </div>
         </div>
     </div>

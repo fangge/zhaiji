@@ -212,3 +212,14 @@
     width: 70%;
   }
 }
+.art-aside{
+  .work-item{
+    height: 166px;
+    overflow: hidden;
+    margin-bottom:20px;
+    img{
+      height: auto;
+      width: 100%;
+    }
+  }
+}

@@ -101,7 +101,7 @@ get_header(); ?>
                                 <div class="work-overlay">
                                     <div class="project-icons">
                                     	<?php if ('photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true ))) { ?>
-                                    	<a href="<?php echo $img_url; ?>" class="lightbox-gallery" title="<?php the_title(); ?>"><i class="fa fa-search"></i></a>
+                                    	<a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true )); ?>" class="lightbox-gallery" title="<?php the_title(); ?>"><i class="fa fa-search"></i></a>
                                         <?php } else { ?>
                                     	<a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ); ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
                                         <?php } ?>
@@ -109,23 +109,14 @@ get_header(); ?>
                                         <?php if ($target_link) { ?>
                                         <a href="<?php echo $target_link; ?>" class="project-icon" target="_blank"><i class="fa fa-link"></i></a>
                                         <?php } else { ?>
-                                        <a href="#" class="project-icon"><i class="fa fa-link"></i></a>
+                                        <a href="<?php echo get_permalink(); ?>" class="project-icon" target="_blank"><i class="fa fa-link"></i></a>
                                         <?php } ?>
                                     </div>
                                 </div>
                                 <div class="work-description">
                                     <h2><a href="#"><?php the_title(); ?></a></h2>
                                     <span>
-                                        <a href="#"><?php 
-                                            $terms = get_the_terms($post->ID, 'zhaiji_works_media_genre', ' ');
-                                            if ($terms) {
-                                                foreach ($terms as $term) {
-                                                    if (in_array($term->slug, $works_type)) {
-                                                        echo ' ' . $term->slug;
-                                                    }
-                                                }
-                                            }
-                                        ?></a>
+                                         <?php the_excerpt(); ?>
                                     </span>
                                 </div>
                             </div>

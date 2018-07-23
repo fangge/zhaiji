@@ -101,7 +101,7 @@
         </div>
     </div>
 </div>
-<script src="<?php bloginfo('template_url'); ?>/js/base.min.js?t=1531999999963"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/base.min.js?t=1532082639771"></script>
 
 <?php wp_footer(); ?>
 </body>

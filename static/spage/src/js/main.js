@@ -48,7 +48,7 @@
 
         // Preloader
         $('.loader').fadeOut();
-        $('.loader-mask').delay(350).fadeOut('slow');
+        $('.loader-mask').delay(100).fadeOut('fast');
 
         $(window).trigger("resize");
         masonry();
@@ -1066,8 +1066,8 @@ $('.read-more').on('click',function () {
     $('body,html').animate({scrollTop:$('.promo-section .title').offset().top-100},400);
 })
 
-$('article p img').each(function () {
-    this.parentNode.className = 'lightbox';
+$('article.art-cont img').each(function () {
+
 })
 $('.lightbox').swipebox();
 $('article img').bind("contextmenu", function(e){ return false; })
