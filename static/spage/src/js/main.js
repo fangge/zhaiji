@@ -1067,7 +1067,9 @@ $('.read-more').on('click',function () {
 })
 
 $('article.art-cont img').each(function () {
-
+    if($(this).parent().attr('href') != ''){
+        $(this).parent().addClass('lightbox');
+    }
 })
 $('.lightbox').swipebox();
 $('article img').bind("contextmenu", function(e){ return false; })
