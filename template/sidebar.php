@@ -21,19 +21,36 @@
         <h2>推荐文章</h2>
         <ul>
         <?php
-            $args = array(
+            /*$args = array(
                 'category_name' => 'news',
                 'showposts'=>5,
                 'orderby' => 'post_modified',
                 'order' => 'DESC'
             );
             query_posts($args);
-            while (have_posts()) : the_post(); 
+            while (have_posts()) : the_post(); */
         ?>
+        <?php 
+            $works_type = array( 'blog-news' );
+
+            $mypost = array( 
+                'post_type' => 'zhaiji_works', 
+                'posts_per_page'=>5,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'zhaiji_works_media_genre',
+                        'field' => 'slug',
+                        'terms' => array_merge( $works_type ),
+                        'operator' => 'IN'
+                    )
+                )
+            ); 
+            $loop = new WP_Query( $mypost ); 
+        ?>
+
+        <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
             <li><a href="<?php the_permalink() ?>" target="_blank"><?php the_title(); ?></a></li>
-        <?php
-            endwhile;
-        ?>
+        <?php endwhile; ?>
         </ul>
     </div>
 

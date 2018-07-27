@@ -59,6 +59,7 @@ function display_zhaiji_works_meta_box( $works ) {
 	$works_resource = esc_html( get_post_meta( $works->ID, 'works_resource', true ) );
     $works_link = esc_html( get_post_meta( $works->ID, 'works_link', true ) );
     $works_big_pic = esc_html( get_post_meta( $works->ID, 'works_big_pic', true ) );
+    $works_specs_zan = esc_html( get_post_meta( $works->ID, 'specs_zan', true ) );
 	?>
 	<table>
 		<tr>
@@ -83,6 +84,10 @@ function display_zhaiji_works_meta_box( $works ) {
 			<td style="width: 100%">大图地址</td>
 			<td><input type="text" size="80" name="zhaiji_works_bigpic" value="<?php echo $works_big_pic; ?>"/></td>
 		</tr>
+        <tr>
+            <td style="width: 100%">点赞数</td>
+            <td><input type="text" size="80" name="zhaiji_works_specszan" value="<?php echo $works_specs_zan; ?>"/></td>
+        </tr>
 	</table>
 <?php 
 }
@@ -104,6 +109,9 @@ function add_zhaiji_works_fields( $zhaiji_works_id, $zhaiji_works ) {
         }
         if ( isset( $_POST['zhaiji_works_bigpic'] )) {
             update_post_meta( $zhaiji_works_id, 'works_big_pic', sanitize_text_field($_POST['zhaiji_works_bigpic']) );
+        }
+        if ( isset( $_POST['zhaiji_works_specszan'] )) {
+            update_post_meta( $zhaiji_works_id, 'specs_zan', sanitize_text_field($_POST['zhaiji_works_specszan']) );
         }
     }
 }
@@ -159,7 +167,7 @@ add_action( 'manage_posts_custom_column', 'populate_columns' );
 function populate_columns( $column ) {
     if ( 'zhaiji_works_category' == $column ) {
         $works_category = get_post_meta( get_the_ID(), 'works_category', true );
-        echo $works_category == 'photo' ? '图片' : ($works_category == 'video'?'视频':'博客');
+        echo $works_category == 'photo' ? '图片' : ($works_category == 'video' ? '视频' : '博客');
     } elseif ( 'zhaiji_works_tag' == $column ) {
 		$terms = get_the_terms($post->ID, 'zhaiji_works_media_genre', ' ');
         if ($terms) {

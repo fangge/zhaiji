@@ -113,8 +113,29 @@ get_header(); ?>
     </div>
     <div id="owl-promo" class="owl-carousel owl-theme">
 
-        <?php query_posts('category_name=news&showposts=5&orderby=post_modified&order=DESC'); ?>
-        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <?php //query_posts('category_name=news&showposts=5&orderby=post_modified&order=DESC'); ?>
+        <?php //if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+        <?php 
+            $works_type = array('blog-news');
+            $mypost = array( 
+                'post_type' => 'zhaiji_works', 
+                'posts_per_page'=>5,
+                'orderby'=>'post_modified',
+                'order'=>'DESC',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'zhaiji_works_media_genre',
+                        'field' => 'slug',
+                        'terms' => array_merge( $works_type ),
+                        'operator' => 'IN'
+                    )
+                )
+            ); 
+            $loop = new WP_Query( $mypost ); 
+        ?>
+
+        <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
         <div class="item">
             <div class="container-fluid">
                 <div class="row">
@@ -159,7 +180,7 @@ get_header(); ?>
             </div>
         </div>
         <?php endwhile; ?>
-        <?php endif; ?>
+        <?php //endif; ?>
     </div>
 </section> <!-- end promo section -->
 
@@ -237,6 +258,7 @@ get_header(); ?>
                     <a href="#" class="filter sliding-link" data-filter=".branding">其他作品</a>
                     <a href="#" class="filter sliding-link" data-filter=".photography">插画艺术</a>
                     <a href="#" class="filter sliding-link" data-filter=".animation">三维动画</a>
+                    <a href="#" class="filter sliding-link" data-filter=".blog-news">博客文章</a>
                 </div>
             </div>
         </div> <!-- end filter -->
@@ -252,7 +274,8 @@ get_header(); ?>
                         'web-design',
                         'branding',
                         'photography',
-                        'animation'
+                        'animation',
+                        'blog-news'
                     );
 
                     $mypost = array( 
@@ -298,7 +321,7 @@ get_header(); ?>
                             'art_url' =>get_permalink(),
                             'title' => get_the_title(),
                             'excerpt' => get_the_excerpt(),
-                            'is_photo' => 'photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
+                            'is_video' => 'video' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
                             'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
                             'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
                             'big_pic' => esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true ) )
@@ -343,7 +366,7 @@ get_header(); ?>
                         $terms = get_the_terms(get_the_ID(), 'zhaiji_works_media_genre', ' ');
                         if ($terms) {
                             foreach ($terms as $term) {
-                                $class = ' ' . $term->slug;
+                                $class .= ' ' . $term->slug;
                             }
                         }
 
@@ -357,7 +380,7 @@ get_header(); ?>
                             'title' => get_the_title(),
                             'art_url' =>get_permalink(),
                             'excerpt' => get_the_excerpt(),
-                            'is_photo' => 'photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
+                            'is_video' => 'video' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
                             'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
                             'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
                             'big_pic' => esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true ) )
@@ -392,10 +415,10 @@ get_header(); ?>
                                 <img src="<?php echo $item['img_url']; ?>" alt="">
                                 <div class="work-overlay">
                                     <div class="project-icons">
-                                        <?php if ($item['is_photo']) { ?>
-                                        <a href="<?php echo $item['big_pic']; ?>" class="lightbox-gallery" title="<?php echo $item['title']; ?>"><i class="fa fa-search"></i></a>
-                                        <?php } else { ?>
+                                        <?php if ($item['is_video']) { ?>
                                         <a href="<?php echo $item['resource']; ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
+                                        <?php } else { ?>
+                                        <a href="<?php echo $item['big_pic']; ?>" class="lightbox-gallery" title="<?php echo $item['title']; ?>"><i class="fa fa-search"></i></a>
                                         <?php } ?>
 										<?php if ($item['target_link']) { ?>
                                         <a href="<?php echo $item['target_link']; ?>" class="project-icon" target="_blank"><i class="fa fa-link"></i></a>

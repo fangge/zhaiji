@@ -49,6 +49,7 @@ get_header(); ?>
                     <a href="#" class="filter sliding-link" data-filter=".branding">其他作品</a>
                     <a href="#" class="filter sliding-link" data-filter=".photography">插画艺术</a>
                     <a href="#" class="filter sliding-link" data-filter=".animation">三维动画</a>
+                    <a href="#" class="filter sliding-link" data-filter=".blog-news">博客文章</a>
                 </div>
             </div>
         </div> <!-- end filter -->
@@ -61,7 +62,8 @@ get_header(); ?>
                                     'web-design',
                                     'branding',
                                     'photography',
-                                    'animation'
+                                    'animation',
+                                    'blog-news'
                                 );
                     $mypost = array( 
                         'post_type' => 'zhaiji_works',
@@ -100,10 +102,10 @@ get_header(); ?>
     		                        ?>" alt="">
                                 <div class="work-overlay">
                                     <div class="project-icons">
-                                    	<?php if ('photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true ))) { ?>
-                                    	<a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true )); ?>" class="lightbox-gallery" title="<?php the_title(); ?>"><i class="fa fa-search"></i></a>
+                                    	<?php if ('video' == esc_html( get_post_meta( get_the_ID(), 'works_category', true ))) { ?>
+                                        <a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ); ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
                                         <?php } else { ?>
-                                    	<a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ); ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
+                                        <a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true )); ?>" class="lightbox-gallery" title="<?php the_title(); ?>"><i class="fa fa-search"></i></a>
                                         <?php } ?>
                                         <?php $target_link = esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ); ?>
                                         <?php if ($target_link) { ?>
