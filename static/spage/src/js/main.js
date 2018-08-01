@@ -1067,7 +1067,7 @@ $('.read-more').on('click',function () {
 })
 
 $('article.art-cont img').each(function () {
-    if($(this).parent().attr('href') != ''){
+    if($(this).parent().attr('href') != '' && $(this).parent()[0].nodeName == 'A'){
         $(this).parent().addClass('lightbox');
     }
 })
