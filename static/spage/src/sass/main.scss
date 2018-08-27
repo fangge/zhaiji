@@ -454,3 +454,17 @@ ol.numbers {
 .tp-caption img{
     opacity: .8;
 }
+.mfp-counter{
+    display: none!important;
+}
+.art-aside{
+    .work-description a{
+        display:block;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        overflow:hidden;
+        width:162px;
+        line-height:1.5;
+        border-radius:0;
+    }
+}

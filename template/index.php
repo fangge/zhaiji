@@ -121,7 +121,7 @@ get_header(); ?>
             $mypost = array( 
                 'post_type' => 'zhaiji_works', 
                 'posts_per_page'=>5,
-                'orderby'=>'post_modified',
+                'orderby'=>'date',
                 'order'=>'DESC',
                 'tax_query' => array(
                     array(
@@ -142,8 +142,9 @@ get_header(); ?>
                     <div class="col-md-6 col-sm-12">
                         <img src="<?php 
                             $img_id = get_post_thumbnail_id();
-                            $img_url = wp_get_attachment_image_src($img_id, 'full');
-                            $img_url = $img_url[0];
+                            // $img_url = wp_get_attachment_image_src($img_id, 'full');
+                            // $img_url = $img_url[0];
+                            $img_url = esc_html( get_post_meta( get_the_ID(), 'works_home_big_pic', true ) );
                             echo $img_url;
                         ?>" alt="" class="promo-img wow slideInLeft" data-wow-duration="1.2s" data-wow-delay="0s">
                     </div>
@@ -231,6 +232,7 @@ get_header(); ?>
                         </a>
                     </div>
                 <?php endwhile; ?>
+						<?php wp_reset_query(); ?>
                 <?php endif; ?>
 
             </div> <!-- end carousel -->
@@ -258,7 +260,6 @@ get_header(); ?>
                     <a href="#" class="filter sliding-link" data-filter=".branding">其他作品</a>
                     <a href="#" class="filter sliding-link" data-filter=".photography">插画艺术</a>
                     <a href="#" class="filter sliding-link" data-filter=".animation">三维动画</a>
-                    <a href="#" class="filter sliding-link" data-filter=".blog-news">博客文章</a>
                 </div>
             </div>
         </div> <!-- end filter -->
@@ -274,23 +275,23 @@ get_header(); ?>
                         'web-design',
                         'branding',
                         'photography',
-                        'animation',
-                        'blog-news'
+                        'animation'
                     );
 
                     $mypost = array( 
                         'post_type' => 'zhaiji_works', 
                         'posts_per_page'=>2,
+						        'orderby' => 'date',
+						        'order' => 'DESC',
                         'tax_query' => array(
+							         'relation' => 'AND',
                             array(
                                 'taxonomy' => 'zhaiji_works_media_genre',
                                 'field' => 'slug',
                                 'terms' => array_merge( $works_type ),
                                 'operator' => 'IN'
-                            )
-                        ),
-                        'tax_query' => array(
-                            array(
+                            ),
+							         array(
                                 'taxonomy' => 'zhaiji_works_media_genre',
                                 'field' => 'slug',
                                 'terms' => array_merge( array( 'vertical' ) )
@@ -304,6 +305,7 @@ get_header(); ?>
 
                     <?php
                         $terms = get_the_terms(get_the_ID(), 'zhaiji_works_media_genre', ' ');
+                        $class = '';
                         if ($terms) {
                             foreach ($terms as $term) {
                                 $class .= ' ' . $term->slug;
@@ -341,16 +343,17 @@ get_header(); ?>
                     $mypost = array( 
                         'post_type' => 'zhaiji_works', 
                         'posts_per_page'=> $maxCount,
+						        'orderby' => 'date',
+						        'order' => 'DESC',
                         'tax_query' => array(
+							         'relation' => 'AND',
                             array(
                                 'taxonomy' => 'zhaiji_works_media_genre',
                                 'field' => 'slug',
                                 'terms' => array_merge( $works_type ),
                                 'operator' => 'IN'
-                            )
-                        ),
-                        'tax_query' => array(
-                            array(
+                            ),
+							         array(
                                 'taxonomy' => 'zhaiji_works_media_genre',
                                 'field' => 'slug',
                                 'terms' => array_merge( array( 'landscape' ) )
@@ -364,6 +367,7 @@ get_header(); ?>
 
                     <?php 
                         $terms = get_the_terms(get_the_ID(), 'zhaiji_works_media_genre', ' ');
+                        $class = '';
                         if ($terms) {
                             foreach ($terms as $term) {
                                 $class .= ' ' . $term->slug;

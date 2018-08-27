@@ -15,7 +15,7 @@
 ?>
 
 <div class="col-sm-12 col-md-4 pt-70">
-    <div class="top-info pb-30"><a href="">首页</a>/<a href="">列表</a>/<a href="" class="cur">详情</a></div>
+    <div class="top-info pb-30"><a href="/zhaiji_v2" target="_blank">首页</a>/<a href="/zhaiji_v2/works/" target="_blank">列表</a>/<a href="" class="cur">详情</a></div>
 
     <div class="news-link art-aside">
         <h2>推荐文章</h2>
@@ -36,6 +36,8 @@
             $mypost = array( 
                 'post_type' => 'zhaiji_works', 
                 'posts_per_page'=>5,
+						'orderby' => 'date',
+						'order' => 'DESC',
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'zhaiji_works_media_genre',
@@ -67,7 +69,9 @@
             );
             $mypost = array( 
                 'post_type' => 'zhaiji_works', 
-                'posts_per_page'=>2,
+                'posts_per_page' => 2,
+						'orderby' => 'date',
+						'order' => 'DESC',
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'zhaiji_works_media_genre',
@@ -100,34 +104,22 @@
                             ?>" alt="">
                     <div class="work-overlay">
                         <div class="project-icons">
-                            <?php if ('photo' == esc_html( get_post_meta( get_the_ID(), 'works_category', true ))) { ?>
-                            <a href="<?php echo $img_url; ?>" class="lightbox-gallery" title="<?php the_title(); ?>"><i class="fa fa-search"></i></a>
+										<?php if ('video' == esc_html( get_post_meta( get_the_ID(), 'works_category', true ))) { ?>
+											<a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ); ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
                             <?php } else { ?>
-                            <a href="<?php echo esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ); ?>" class="lightbox-video mfp-iframe"><i class="fa fa-play"></i></a>
+                            <a href="<?php echo $img_url; ?>" class="lightbox-gallery" title="<?php the_title(); ?>"><i class="fa fa-search"></i></a>
                             <?php } ?>
                             <?php $target_link = esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ); ?>
                             <?php if ($target_link) { ?>
                             <a href="<?php echo $target_link; ?>" class="project-icon" target="_blank"><i class="fa fa-link"></i></a>
                             <?php } else { ?>
-                            <a href="#" class="project-icon"><i class="fa fa-link"></i></a>
+                            <a href="<?php echo get_permalink(); ?>" class="project-icon" target="_blank"><i class="fa fa-link"></i></a>
                             <?php } ?>
                         </div>
                     </div>
                     <div class="work-description">
                         <h2><a href="#"><?php the_title(); ?></a></h2>
-                        <span>
-                            <a href="#"><?php 
-                                $terms = get_the_terms($post->ID, 'zhaiji_works_media_genre', ' ');
-                                if ($terms) {
-                                    foreach ($terms as $term) {
-                                        if (in_array($term->slug, $works_type)) {
-                                            echo ' ' . $term->slug;
-                                            break;
-                                        }
-                                    }
-                                }
-                            ?></a>
-                        </span>
+                        <span><?php the_excerpt(); ?></span>
                     </div>
                 </div>
             </div>

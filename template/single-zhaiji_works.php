@@ -69,6 +69,8 @@ get_header(); ?>
                         'post_type' => 'zhaiji_works',
                         'paged' => $paged,
                         'posts_per_page' => 16,
+						        'orderby' => 'date',
+						        'order' => 'DESC',
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'zhaiji_works_media_genre',
