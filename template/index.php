@@ -254,12 +254,27 @@ get_header(); ?>
         <!-- filter -->
         <div class="row">
             <div class="col-md-12">
+				<?php 
+					$taxonomies = get_object_taxonomies('zhaiji_works'); //获取与文章类型相关联的分类法别名
+					$tagitems = get_terms( $taxonomies, 'orderby=id&hide_empty=0' ); //获取该分类法的所有分类数组
+					$tags = array();
+					$tagfilters = array('list-banner','article-banner','landscape','vertical','index-banner','blog-news');
+					foreach ($tagitems as $tagitem) { 
+						if (!in_array($tagitem->slug, $tagfilters)) {
+							array_push($tags, $tagitem);
+						}
+					}
+				?>
                 <div class="portfolio-filter">
                     <a href="#" class="filter active sliding-link" data-filter="*">全部</a>
-                    <a href="#" class="filter sliding-link" data-filter=".web-design">游戏作品</a>
+                    <!--<a href="#" class="filter sliding-link" data-filter=".game-design">游戏作品</a>
                     <a href="#" class="filter sliding-link" data-filter=".branding">其他作品</a>
                     <a href="#" class="filter sliding-link" data-filter=".photography">插画艺术</a>
                     <a href="#" class="filter sliding-link" data-filter=".animation">三维动画</a>
+					<a href="#" class="filter sliding-link" data-filter=".web-design">网页设计</a>-->
+					<?php foreach ($tags as $tag) { ?>
+						<a href="#" class="filter sliding-link" data-filter=".<?php echo $tag->slug;?>"><?php echo $tag->name;?></a>
+					<?php } ?>
                 </div>
             </div>
         </div> <!-- end filter -->
@@ -271,27 +286,32 @@ get_header(); ?>
                     $allArr = array();
                     $maxCount = 8;
                     $verticalArr = array();
-                    $works_type = array(
-                        'web-design',
+					$works_type = array();
+					foreach ($tags as $tag) {
+						array_push($works_type, $tag->slug);
+					}
+                    /*$works_type = array(
+                        'game-design',
                         'branding',
                         'photography',
-                        'animation'
-                    );
+                        'animation',
+                        'web-design'
+                    );*/
 
                     $mypost = array( 
                         'post_type' => 'zhaiji_works', 
                         'posts_per_page'=>2,
-						        'orderby' => 'date',
-						        'order' => 'DESC',
+						'orderby' => 'date',
+						'order' => 'DESC',
                         'tax_query' => array(
-							         'relation' => 'AND',
+							'relation' => 'AND',
                             array(
                                 'taxonomy' => 'zhaiji_works_media_genre',
                                 'field' => 'slug',
                                 'terms' => array_merge( $works_type ),
                                 'operator' => 'IN'
                             ),
-							         array(
+							array(
                                 'taxonomy' => 'zhaiji_works_media_genre',
                                 'field' => 'slug',
                                 'terms' => array_merge( array( 'vertical' ) )
@@ -343,24 +363,24 @@ get_header(); ?>
                     $mypost = array( 
                         'post_type' => 'zhaiji_works', 
                         'posts_per_page'=> $maxCount,
-						        'orderby' => 'date',
-						        'order' => 'DESC',
+						'orderby' => 'date',
+						'order' => 'DESC',
                         'tax_query' => array(
-							         'relation' => 'AND',
+							'relation' => 'AND',
                             array(
                                 'taxonomy' => 'zhaiji_works_media_genre',
                                 'field' => 'slug',
                                 'terms' => array_merge( $works_type ),
                                 'operator' => 'IN'
                             ),
-							         array(
+							array(
                                 'taxonomy' => 'zhaiji_works_media_genre',
                                 'field' => 'slug',
                                 'terms' => array_merge( array( 'landscape' ) )
                             )
                         )
                     ); 
-                    $loop = new WP_Query( $mypost ); 
+                    $loop = new WP_Query( $mypost );
                 ?>
 
                 <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
@@ -388,7 +408,7 @@ get_header(); ?>
                             'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
                             'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
                             'big_pic' => esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true ) )
-                        ))
+                        ));
                     ?>
 
                 <?php 
@@ -396,7 +416,7 @@ get_header(); ?>
                     wp_reset_query();
                 ?>
 
-                <?php 
+                <?php
                     if (count($verticalArr) < 2) {
                         array_splice($landscapeArr, 0, 0, $verticalArr);
                         $allArr = $landscapeArr;
@@ -446,7 +466,7 @@ get_header(); ?>
 
         <div class="row mt-40">
             <div class="col-md-12 text-center">
-                <a href="/zhaiji_v2/works/" class="btn btn-lg btn-icon btn-white" id="load-more" target="_blank"><span>More Works</span><i class="fa fa-angle-right"></i></a>
+                <a href="/works/" class="btn btn-lg btn-icon btn-white" id="load-more" target="_blank"><span>More Works</span><i class="fa fa-angle-right"></i></a>
             </div>
         </div>
     </div>

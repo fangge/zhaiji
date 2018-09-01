@@ -59,6 +59,7 @@ function display_zhaiji_works_meta_box( $works ) {
 	$works_resource = esc_html( get_post_meta( $works->ID, 'works_resource', true ) );
     $works_link = esc_html( get_post_meta( $works->ID, 'works_link', true ) );
     $works_big_pic = esc_html( get_post_meta( $works->ID, 'works_big_pic', true ) );
+    $works_home_big_pic = esc_html( get_post_meta( $works->ID, 'works_home_big_pic', true ) );
     $works_specs_zan = esc_html( get_post_meta( $works->ID, 'specs_zan', true ) );
 	?>
 	<table>
@@ -83,6 +84,10 @@ function display_zhaiji_works_meta_box( $works ) {
         <tr>
 			<td style="width: 100%">大图地址</td>
 			<td><input type="text" size="80" name="zhaiji_works_bigpic" value="<?php echo $works_big_pic; ?>"/></td>
+		</tr>
+		<tr>
+			<td style="width: 100%">首页大图地址</td>
+			<td><input type="text" size="80" name="zhaiji_works_home_bigpic" value="<?php echo $works_home_big_pic; ?>"/></td>
 		</tr>
         <tr>
             <td style="width: 100%">点赞数</td>
@@ -109,6 +114,9 @@ function add_zhaiji_works_fields( $zhaiji_works_id, $zhaiji_works ) {
         }
         if ( isset( $_POST['zhaiji_works_bigpic'] )) {
             update_post_meta( $zhaiji_works_id, 'works_big_pic', sanitize_text_field($_POST['zhaiji_works_bigpic']) );
+        }
+        if ( isset( $_POST['zhaiji_works_home_bigpic'] )) {
+            update_post_meta( $zhaiji_works_id, 'works_home_big_pic', sanitize_text_field($_POST['zhaiji_works_home_bigpic']) );
         }
         if ( isset( $_POST['zhaiji_works_specszan'] )) {
             update_post_meta( $zhaiji_works_id, 'specs_zan', sanitize_text_field($_POST['zhaiji_works_specszan']) );

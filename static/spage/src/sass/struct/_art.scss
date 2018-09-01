@@ -133,6 +133,10 @@
 .art-show{
   .work-item{
     width: 198px;
+    overflow: hidden;
+  }
+  .work-img.rounded{
+    position: static;
   }
   .work-img{
     img{

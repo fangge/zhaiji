@@ -43,14 +43,23 @@ get_header(); ?>
         <!-- filter -->
         <div class="row">
             <div class="col-md-12">
+				<?php 
+					$taxonomies = get_object_taxonomies('zhaiji_works'); //获取与文章类型相关联的分类法别名
+					$tagitems = get_terms( $taxonomies, 'orderby=id&hide_empty=0' ); //获取该分类法的所有分类数组
+					$tags = array();
+					$tagfilters = array('list-banner','article-banner','landscape','vertical','index-banner');
+					foreach ($tagitems as $tagitem) { 
+						if (!in_array($tagitem->slug, $tagfilters)) {
+							array_push($tags, $tagitem);
+						}
+					}
+				?>
                 <div class="portfolio-filter">
                     <a href="#" class="filter active sliding-link" data-filter="*">全部</a>
-                    <a href="#" class="filter sliding-link" data-filter=".web-design">游戏作品</a>
-                    <a href="#" class="filter sliding-link" data-filter=".branding">其他作品</a>
-                    <a href="#" class="filter sliding-link" data-filter=".photography">插画艺术</a>
-                    <a href="#" class="filter sliding-link" data-filter=".animation">三维动画</a>
-                    <a href="#" class="filter sliding-link" data-filter=".blog-news">博客文章</a>
-                </div>
+					<?php foreach ($tags as $tag) { ?>
+					<a href="#" class="filter sliding-link" data-filter=".<?php echo $tag->slug;?>"><?php echo $tag->name;?></a>
+					<?php } ?>
+                </div>
             </div>
         </div> <!-- end filter -->
 
@@ -58,19 +67,24 @@ get_header(); ?>
     		<div id="portfolio-container2" class="works-grid grid-4-col no-gutter">
 
     	        <?php 
-                    $works_type = array(
+					$works_type = array();
+					foreach ($tags as $tag) {
+						array_push($works_type, $tag->slug);
+					}
+                    /*$works_type = array(
                                     'web-design',
+                                    'game-design',
                                     'branding',
                                     'photography',
                                     'animation',
                                     'blog-news'
-                                );
+                                );*/
                     $mypost = array( 
                         'post_type' => 'zhaiji_works',
                         'paged' => $paged,
                         'posts_per_page' => 16,
-						        'orderby' => 'date',
-						        'order' => 'DESC',
+						'orderby' => 'date',
+						'order' => 'DESC',
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'zhaiji_works_media_genre',

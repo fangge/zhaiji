@@ -11,14 +11,12 @@
  * @since 1.0
  * @version 1.2
  */
-
 ?>
-
-<div class="col-sm-12 col-md-4 pt-70">
-    <div class="top-info pb-30"><a href="/zhaiji_v2" target="_blank">首页</a>/<a href="/zhaiji_v2/works/" target="_blank">列表</a>/<a href="" class="cur">详情</a></div>
+<div class="col-sm-12 col-md-2 pt-70">
+	<div class="top-info pb-30"><a href="/" target="_blank">首页</a>/<a href="/works/" target="_blank">列表</a>/<a href="" class="cur">详情</a></div>
 
     <div class="news-link art-aside">
-        <h2>推荐文章</h2>
+        <h2>最新文章</h2>
         <ul>
         <?php
             /*$args = array(

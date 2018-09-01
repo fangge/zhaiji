@@ -41,8 +41,8 @@
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700,600,800,400,300%7CRoboto:700,400,300%7CMerriweather:400,400italic' rel='stylesheet'>
 
-    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/revolution/css/settings.css?t=1533133165627" />
-    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/main.css?t=1533133165627">
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/revolution/css/settings.css?t=1535348383743" />
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/main.css?t=1535440168957">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -72,7 +72,7 @@
     <p><i class="fax"></i>+ 02029003152</p>
     <h6 class="mt-40">在线咨询</h6>
     <ul class="links-list nopadding">
-        <li><a href="#">吴总监</a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=119986317&site=qq&menu=yes">吴总监</a></li>
         <li><a href="#">李经理</a></li>
         <li><a href="#">潘总程</a></li>
         <li><a href="#">冼小姐</a></li>

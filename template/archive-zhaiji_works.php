@@ -35,9 +35,7 @@ get_header(); ?>
 <?php endwhile; ?>
 <?php wp_reset_query(); ?>
 
-<section class="art-col row">
-    <div class="col-sm-12 col-md-8 pt-70">
-        <h2 class="heading uppercase bottom-line">ZAKEA WORKS & BLOG</h2>
+<section class="art-col row"><div class="col-sm-12 col-md-10 pt-70"><h2 class="heading uppercase bottom-line">ZAKEA WORKS & BLOG</h2>
         <article class="art-cont">
             <?php while ( have_posts() ) : the_post(); ?>
                 <h1><?php the_title(); ?></h1>
@@ -63,8 +61,9 @@ get_header(); ?>
                 <p><br></p>
             <?php endwhile; // End of the loop. ?>
 			
-			<div class="bdsharebuttonbox"><span>分享到：</span><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"<?php the_title(); ?>","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["weixin","tsina","sqq","qzone"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+			
+			<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"<?php the_title(); ?>","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","tsina","qzone","sqq"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 			
 
         </article>
