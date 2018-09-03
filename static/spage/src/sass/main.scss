@@ -473,3 +473,9 @@ ol.numbers {
     padding: 0;
   }
 }
+.portfolio-container{
+    display: none;
+    &.current{
+        display: block;
+    }
+}

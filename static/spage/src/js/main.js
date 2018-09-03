@@ -822,25 +822,32 @@
     /* Portfolio Isotope
     -------------------------------------------------------*/
 
-    var $portfolio = $('#portfolio-container');
+    var $portfolio = $('.portfolio-container').eq(0),portfolioindex;
+    $portfolio.addClass('current');
     $portfolio.imagesLoaded( function() {
         $portfolio.isotope({
             isOriginLeft: true,
             stagger: 30
         });
         $portfolio.isotope();
-
     });
 
     // Isotope filter
     $('#portfolio1 .portfolio-filter').on( 'click', 'a', function(e) {
         e.preventDefault();
-        var filterValue = $(this).attr('data-filter');
-        $portfolio.isotope({ filter: filterValue });
-
+        portfolioindex = $(this).index();
+        console.log(portfolioindex);
         $('#portfolio1 .portfolio-filter a').removeClass('active');
         $(this).closest('a').addClass('active');
+        $('.portfolio-container').eq(portfolioindex).addClass('current').siblings().removeClass('current');
 
+        $('.portfolio-container').eq(portfolioindex).imagesLoaded( function() {
+            $('.portfolio-container').eq(portfolioindex).isotope({
+                isOriginLeft: true,
+                stagger: 30
+            });
+            $('.portfolio-container').eq(portfolioindex).isotope();
+        });
     });
 
     /* Inifnite Scroll
