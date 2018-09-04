@@ -59,7 +59,7 @@ get_header(); ?>
 					<?php foreach ($tags as $tag) { ?>
 					<a href="#" class="filter sliding-link" data-filter=".<?php echo $tag->slug;?>"><?php echo $tag->name;?></a>
 					<?php } ?>
-                </div>
+				</div>
             </div>
         </div> <!-- end filter -->
 

@@ -59,12 +59,19 @@
 
         <?php //query_posts(array('post_type'=>'zhaiji_works')); ?>
         <?php 
-            $works_type = array(
-                'web-design',
-                'branding',
-                'photography',
-                'animation'
-            );
+			$taxonomies = get_object_taxonomies('zhaiji_works'); //获取与文章类型相关联的分类法别名
+			$tagitems = get_terms( $taxonomies, 'orderby=id&hide_empty=0' ); //获取该分类法的所有分类数组
+			$tags = array();
+			$tagfilters = array('list-banner','article-banner','landscape','vertical','index-banner');
+			foreach ($tagitems as $tagitem) { 
+				if (!in_array($tagitem->slug, $tagfilters)) {
+					array_push($tags, $tagitem);
+				}
+			}
+            $works_type = array();
+			foreach ($tags as $tag) {
+				array_push($works_type, $tag->slug);
+			}
             $mypost = array( 
                 'post_type' => 'zhaiji_works', 
                 'posts_per_page' => 2,

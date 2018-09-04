@@ -93,7 +93,7 @@ get_header(); ?>
                     <h3><?php the_title(); ?></h3>
                     <blockquote><?php echo esc_html( get_post_meta( $post->ID, 'title_en', true ) ); ?></blockquote>
                     <p class="mb-10"><?php echo esc_html( get_the_excerpt() ); ?></p>
-                    <a class="read-more sliding-link">Read More</a>
+                    <a class="read-more sliding-link" href="/works/" target="_blank">Read More</a>
                 </div>
             </div> <!-- end service item -->
             <?php $i++ ?>
@@ -242,7 +242,7 @@ get_header(); ?>
 </section> <!-- end partners -->
 
         <!-- Portfolio 3 Columns-->
-<section class="section-wrap bg-light portfolio" id="portfolio1">
+<section class="section-wrap bg-light portfolio">
     <div class="container-fluid">
 
         <div class="row heading-row">
@@ -253,7 +253,7 @@ get_header(); ?>
 
         <!-- filter -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" id="portfolio1">
 				<?php 
 					$taxonomies = get_object_taxonomies('zhaiji_works'); //获取与文章类型相关联的分类法别名
 					$tagitems = get_terms( $taxonomies, 'orderby=id&hide_empty=0' ); //获取该分类法的所有分类数组
@@ -266,14 +266,9 @@ get_header(); ?>
 					}
 				?>
                 <div class="portfolio-filter">
-                    <a href="#" class="filter active sliding-link" data-filter="*">全部</a>
-                    <!--<a href="#" class="filter sliding-link" data-filter=".game-design">游戏作品</a>
-                    <a href="#" class="filter sliding-link" data-filter=".branding">其他作品</a>
-                    <a href="#" class="filter sliding-link" data-filter=".photography">插画艺术</a>
-                    <a href="#" class="filter sliding-link" data-filter=".animation">三维动画</a>
-					<a href="#" class="filter sliding-link" data-filter=".web-design">网页设计</a>-->
+                    <a class="active sliding-link" data-filter=".type_all">全部</a>
 					<?php foreach ($tags as $tag) { ?>
-						<a href="#" class="filter sliding-link" data-filter=".<?php echo $tag->slug;?>"><?php echo $tag->name;?></a>
+						<a class="sliding-link" data-filter=".type_<?php echo $tag->slug;?>"><?php echo $tag->name;?></a>
 					<?php } ?>
                 </div>
             </div>
@@ -281,15 +276,81 @@ get_header(); ?>
 
         <div class="row">
             <div id="portfolio-container" class="works-grid grid-4-col no-gutter">
+<?php
+		$works_type = array();
+		foreach ($tags as $tag) {
+			array_push($works_type, $tag->slug);
+		}
+		function getListByTypeAndDir($types,$num,$dir) {
+			$list = array();
+			$mypost = array(
+                        'post_type' => 'zhaiji_works',
+                        'posts_per_page'=>$num,
+						'orderby' => 'date',
+						'order' => 'DESC',
+                        'tax_query' => array(
+							'relation' => 'AND',
+                            array(
+                                'taxonomy' => 'zhaiji_works_media_genre',
+                                'field' => 'slug',
+                                'terms' => $types,
+                                'operator' => 'IN'
+                            ),
+							array(
+                                'taxonomy' => 'zhaiji_works_media_genre',
+                                'field' => 'slug',
+                                'terms' => array_merge( array( $dir ) )
+                            )
+                        )
+                    );
+                    $loop = new WP_Query( $mypost );
+			while ( $loop->have_posts() ) : $loop->the_post();
+			$terms = get_the_terms(get_the_ID(), 'zhaiji_works_media_genre', ' ');
+                        $class = '';
+                        if ($terms) {
+                            foreach ($terms as $term) {
+                                $class .= ' ' . $term->slug;
+                            }
+                        }
 
-                <?php 
-                    $allArr = array();
-                    $maxCount = 8;
-                    $verticalArr = array();
-					$works_type = array();
-					foreach ($tags as $tag) {
-						array_push($works_type, $tag->slug);
-					}
+                        $img_id = get_post_thumbnail_id();
+                        $img_url = wp_get_attachment_image_src($img_id, 'full');
+                        $img_url = $img_url[0];
+			$list[] = array(
+                            'class' => $class,
+                            'img_url' => $img_url,
+                            'art_url' =>get_permalink(),
+                            'title' => get_the_title(),
+                            'excerpt' => get_the_excerpt(),
+                            'is_video' => 'video' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
+                            'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
+                            'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
+                            'big_pic' => esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true ) )
+                        );
+			endwhile;
+			wp_reset_query();
+			return $list;
+		}
+		function getListByType($types) {
+			$verticalArr = getListByTypeAndDir($types,2,'vertical');
+			$maxCount = 8-count($verticalArr) * 2;
+			$landscapeArr = getListByTypeAndDir($types,$maxCount,'landscape');
+			$allArr=array();
+			if (count($verticalArr) < 2) {
+				array_splice($landscapeArr, 0, 0, $verticalArr);
+				$allArr = $landscapeArr;
+			    } else {
+				if (count($landscapeArr) > 1) {
+				    array_splice($landscapeArr, 0, 0, array($verticalArr[0]));
+				    array_splice($landscapeArr, 2, 0, array($verticalArr[1]));
+				    $allArr = $landscapeArr;
+				} else {
+				    array_splice($verticalArr, 2, 0, $landscapeArr);
+				    $allArr = $verticalArr;
+				}
+			    }
+			return $allArr;
+		}
                     /*$works_type = array(
                         'game-design',
                         'branding',
@@ -297,143 +358,18 @@ get_header(); ?>
                         'animation',
                         'web-design'
                     );*/
+		    $allArr = getListByType($works_type);
+		    $listArr = array();
+		    $listArr['all'] = $allArr;
+		    foreach($works_type as $type) {
+			$lists = getListByType(array($type));
+			$listArr[$type] = $lists;
+		    }
+		?>
 
-                    $mypost = array( 
-                        'post_type' => 'zhaiji_works', 
-                        'posts_per_page'=>2,
-						'orderby' => 'date',
-						'order' => 'DESC',
-                        'tax_query' => array(
-							'relation' => 'AND',
-                            array(
-                                'taxonomy' => 'zhaiji_works_media_genre',
-                                'field' => 'slug',
-                                'terms' => array_merge( $works_type ),
-                                'operator' => 'IN'
-                            ),
-							array(
-                                'taxonomy' => 'zhaiji_works_media_genre',
-                                'field' => 'slug',
-                                'terms' => array_merge( array( 'vertical' ) )
-                            )
-                        )
-                    ); 
-                    $loop = new WP_Query( $mypost ); 
-                ?>
-
-                <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-
-                    <?php
-                        $terms = get_the_terms(get_the_ID(), 'zhaiji_works_media_genre', ' ');
-                        $class = '';
-                        if ($terms) {
-                            foreach ($terms as $term) {
-                                $class .= ' ' . $term->slug;
-                            }
-                        }
-
-                        $img_id = get_post_thumbnail_id();
-                        $img_url = wp_get_attachment_image_src($img_id, 'full');
-                        $img_url = $img_url[0];
-
-
-                        array_push($verticalArr, array(
-                            'class' => $class,
-                            'img_url' => $img_url,
-                            'art_url' =>get_permalink(),
-                            'title' => get_the_title(),
-                            'excerpt' => get_the_excerpt(),
-                            'is_video' => 'video' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
-                            'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
-                            'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
-                            'big_pic' => esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true ) )
-                        ))
-                    ?>
-
-                <?php 
-                    endwhile;
-                    wp_reset_query();
-                ?>
-
-                <?php 
-
-                    $maxCount -= count($verticalArr) * 2;
-
-                    $landscapeArr = array();
-                    $mypost = array( 
-                        'post_type' => 'zhaiji_works', 
-                        'posts_per_page'=> $maxCount,
-						'orderby' => 'date',
-						'order' => 'DESC',
-                        'tax_query' => array(
-							'relation' => 'AND',
-                            array(
-                                'taxonomy' => 'zhaiji_works_media_genre',
-                                'field' => 'slug',
-                                'terms' => array_merge( $works_type ),
-                                'operator' => 'IN'
-                            ),
-							array(
-                                'taxonomy' => 'zhaiji_works_media_genre',
-                                'field' => 'slug',
-                                'terms' => array_merge( array( 'landscape' ) )
-                            )
-                        )
-                    ); 
-                    $loop = new WP_Query( $mypost );
-                ?>
-
-                <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-
-                    <?php 
-                        $terms = get_the_terms(get_the_ID(), 'zhaiji_works_media_genre', ' ');
-                        $class = '';
-                        if ($terms) {
-                            foreach ($terms as $term) {
-                                $class .= ' ' . $term->slug;
-                            }
-                        }
-
-                        $img_id = get_post_thumbnail_id();
-                        $img_url = wp_get_attachment_image_src($img_id, 'full');
-                        $img_url = $img_url[0];
-
-                        array_push($landscapeArr, array(
-                            'class' => $class,
-                            'img_url' => $img_url,
-                            'title' => get_the_title(),
-                            'art_url' =>get_permalink(),
-                            'excerpt' => get_the_excerpt(),
-                            'is_video' => 'video' == esc_html( get_post_meta( get_the_ID(), 'works_category', true )),
-                            'resource' => esc_html( get_post_meta( get_the_ID(), 'works_resource', true ) ),
-                            'target_link' => esc_html( get_post_meta( get_the_ID(), 'works_link', true ) ),
-                            'big_pic' => esc_html( get_post_meta( get_the_ID(), 'works_big_pic', true ) )
-                        ));
-                    ?>
-
-                <?php 
-                    endwhile; 
-                    wp_reset_query();
-                ?>
-
-                <?php
-                    if (count($verticalArr) < 2) {
-                        array_splice($landscapeArr, 0, 0, $verticalArr);
-                        $allArr = $landscapeArr;
-                    } else {
-                        if (count($landscapeArr) > 1) {
-                            array_splice($landscapeArr, 0, 0, array($verticalArr[0]));
-                            array_splice($landscapeArr, 2, 0, array($verticalArr[1]));
-                            $allArr = $landscapeArr;
-                        } else {
-                            array_splice($verticalArr, 2, 0, $landscapeArr);
-                            $allArr = $verticalArr;
-                        }
-                    }
-                ?>
-
-                <?php foreach ($allArr as $item) { ?>
-                    <div class="work-item<?php echo $item['class']; ?>">
+                <?php foreach ($listArr as $ptype=>$lists) { ?>
+                <?php foreach ($lists as $item) { ?>
+                    <div class="type_<?php echo $ptype; ?> work-item<?php echo $item['class']; ?>">
                         <div class="work-container">
                             <div class="work-img rounded">
                                 <img src="<?php echo $item['img_url']; ?>" alt="">
@@ -461,6 +397,7 @@ get_header(); ?>
                         </div>
                     </div> <!-- end work-item -->
                 <?php } ?>
+		 <?php } ?>
             </div> <!-- end portfolio container -->
         </div> <!-- end row -->
 

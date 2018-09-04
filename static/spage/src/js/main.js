@@ -822,8 +822,7 @@
     /* Portfolio Isotope
     -------------------------------------------------------*/
 
-    var $portfolio = $('.portfolio-container').eq(0),portfolioindex;
-    $portfolio.addClass('current');
+    var $portfolio = $('#portfolio-container');
     $portfolio.imagesLoaded( function() {
         $portfolio.isotope({
             isOriginLeft: true,
@@ -831,23 +830,16 @@
         });
         $portfolio.isotope();
     });
+    $portfolio.isotope({ filter: '.type_all' });
 
     // Isotope filter
     $('#portfolio1 .portfolio-filter').on( 'click', 'a', function(e) {
         e.preventDefault();
-        portfolioindex = $(this).index();
-        console.log(portfolioindex);
+        var filterValue = $(this).attr('data-filter');
+        $portfolio.isotope({ filter: filterValue });
+
         $('#portfolio1 .portfolio-filter a').removeClass('active');
         $(this).closest('a').addClass('active');
-        $('.portfolio-container').eq(portfolioindex).addClass('current').siblings().removeClass('current');
-
-        $('.portfolio-container').eq(portfolioindex).imagesLoaded( function() {
-            $('.portfolio-container').eq(portfolioindex).isotope({
-                isOriginLeft: true,
-                stagger: 30
-            });
-            $('.portfolio-container').eq(portfolioindex).isotope();
-        });
     });
 
     /* Inifnite Scroll

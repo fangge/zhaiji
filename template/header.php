@@ -41,8 +41,8 @@
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700,600,800,400,300%7CRoboto:700,400,300%7CMerriweather:400,400italic' rel='stylesheet'>
 
-    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/revolution/css/settings.css?t=1535348383743" />
-    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/main.css?t=1535440168957">
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/revolution/css/settings.css?t=1535803527194" />
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/main.css?t=1535803527194">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
