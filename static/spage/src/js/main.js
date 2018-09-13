@@ -34,7 +34,7 @@
                 um_id: id,
                 um_action: action
             };
-            $.post("http://www.hx-h.com/zhaiji_v2/wp-admin/admin-ajax.php", ajax_data,
+            $.post("http://www.hx-h.com/wp-admin/admin-ajax.php", ajax_data,
                 function(data) {
                     $(rateHolder).html(data);
                 });
